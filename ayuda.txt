@@ -1,0 +1,32 @@
+Tener instalado composer, y un aplicacion que te permita desplegar en local
+
+php artisan make:controller NombreController
+
+
+-- Crea un componente clase para el componente y lo renderiza a la vista en resources/components/nombre
+php artisan make:component nombre
+
+-- Las migraciones sirven para tener tablas en la base de datos al empezar --
+php artisan migrate                                 -> Ira a las migraciones y realizara el metodo up
+php artisan migrate:rollback                        -> Ira a las migraciones y realizara el metodo down
+php artisan make:migration productos                -> Creara el archivo de la migracion
+php artisan make:migration create_nombre_table      -> Creara el archivo de la migracion
+
+---- Metodos destructivos -- Borrara todas las tablas
+php artisan migrate:refresh                         -> Se ejecutan todos los metodos down dando igual el lote, y luego hace el up
+php artisan migrate:fresh                           -> Elimina todas las tablas y luego ejecuta las migraciones.
+
+php artisan make:migration add_campo_to_users_table -> Si quieres añadir un campo sin borrar las tablas
+
+php artisan make:model Nombre
+
+
+php artisan
+
+php artisan db:seed  -> Para ejecutar el seeder
+
+php artisan migrate:fresh --seed -> Se eliminan las tablas y las crea y ejecuta los seeders
+php artisan make:seeder UserSeeder -> Para crear el archivo para el seed de la tabla users
+php artisan make:factory NombreFactory
+
+php artisan r:l -> Ver las rutas

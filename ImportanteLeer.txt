@@ -1,0 +1,30 @@
+https://www.youtube.com/watch?v=uWU6QOsQM_w
+
+laravel new
+
+Livewire
+Laravel auth
+Pest 
+Npm build? Yes
+
+php artisan migrate
+
+php artisan serve -> Para no tener que usar apache, aun asi tengo que usarlo para la base de datos.
+npm run dev -> Para que se actualizen los datos automáticamente.
+
+Pasos para crear el CRUD
+1 - php artisan make:migration create_nombres_table -> Crear la tabla
+2 - php artisan migrate
+3 - php artisan make:model Nombre -> Crear el modelo
+    En el modelo hacer una variable protegida llamada $fillable en la que hay que meter los campos rellenables.
+4 - Crear la ruta
+    Route::view('nombres', 'nombres')
+    ->middleware(['auth', 'verified'])
+    ->name('nombres'); -> Para que se pueda referenciar usando route('nombre')
+5 - Hacer el enlace para entrar a la ruta
+    <flux:navlist.item icon="home" :href="route('posts')" :current="request()->routeIs('posts')" wire:navigate>{{ __('Posts') }}</flux:navlist.item>
+        route('posts') genera la URL asociada con la ruta nombrada posts.
+        :href="..." indica que se está pasando un valor dinámico en Vue.js o Blade.
+        request()->routeIs('posts') verifica si la ruta actual coincide con posts, devolviendo true si es así.
+        Esto sugiere el uso de Livewire Turbo o Livewire v3, donde wire:navigate mejora la navegación sin recargar la página.
+        __('Posts') permite traducir el texto "Posts" usando las funciones de localización de Laravel. -> Por si el idioma es distinto
