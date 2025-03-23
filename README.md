@@ -66,7 +66,7 @@ Este proyecto ha sido desarrollado siguiendo tutoriales y referencias de:
 
 ## 📜 Licencia
 
-**© 2925 Diaz Kremer. Todos los derechos reservados.**
+**© 2025 Diaz Kremer. Todos los derechos reservados.**
 
 Este software es propiedad exclusiva de **Diaz Kremer**. Se prohíbe su distribución, modificación o uso sin permiso expreso por escrito.
 
