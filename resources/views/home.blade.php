@@ -42,10 +42,11 @@
                     </p>
                 </div>
             </section>
-            <section id="testimonials" aria-label="What our customers are saying" class="bg-slate-50 py-20 sm:py-32">
+
+            {{-- <section id="testimonials" aria-label="What our customers are saying" class="bg-slate-50 py-20 sm:py-32">
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div class="mx-auto max-w-2xl md:text-center">
-                        <h2 class="font-display text-3xl text-center tracking-tight text-slate-900 sm:text-4xl">Qué dicen nuestros clientes</h2>
+                        <h2 class="font-display text-3xl text-center tracking-tight text-slate-900 sm:text-4xl">Unas palabras del CEO</h2>
                     </div>
                     <ul role="list" class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3">
                         @foreach ($users as $user)
@@ -76,7 +77,8 @@
                         @endforeach
                     </ul>
                 </div>
-            </section>
+            </section> --}}
+            
             <div id="contacto" class="container-form ">
                 <div class="info-form">
                     <h2>Contáctanos</h2>

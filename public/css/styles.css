@@ -48,11 +48,10 @@ header nav .links a {
     /* color: rgb(255, 255, 255); */
     /* text-decoration: none; */
 }
-header nav .links a:hover {
-    background-color: var(--terciary-color);
+header nav .links .link:hover {
     /* color: black; */
     /* border: 2px solid var(--cuaternary-color); */
-    background-color: var(--secondary-color);
+    background-color: var(--terciary-color);
 }
 
 .active {

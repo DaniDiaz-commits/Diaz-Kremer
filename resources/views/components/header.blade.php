@@ -7,15 +7,15 @@
                 <span class="self-center text-3xl font-bold whitespace-nowrap dark:text-white">Diaz Kremer</span>
             </a>
             <div class="links hidden md:flex items-center space-x-2 gap-1">
-                <a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Inicio</a>
-                <a href="/productos" class="{{ request()->is('productos') ? 'active' : '' }}">Productos</a>
-                <a href="/proveedores" class="{{ request()->is('proveedores') ? 'active' : '' }}">Marcas</a>
-                <a href="/#contacto" class="{{ request()->is('#contacto') ? 'active' : '' }}">Contacto</a>
+                <a href="/" class="{{ request()->is('/') ? 'active' : 'link' }}">Inicio</a>
+                <a href="/productos" class="{{ request()->is('productos') ? 'active' : 'link' }}">Productos</a>
+                <a href="/proveedores" class="{{ request()->is('proveedores') ? 'active' : 'link' }}">Marcas</a>
+                <a href="/#contacto" class="{{ request()->is('#contacto') ? 'active' : 'link' }}">Contacto</a>
             </div>
             
 
             <button data-collapse-toggle="navbar-hamburger" type="button" id="button-toggle-nav"
-                class="button-mv inline-flex md:hidden items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                class="button-mv inline-flex md:hidden items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                 aria-controls="navbar-hamburger" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -25,18 +25,18 @@
                 </svg>
             </button>
             <div class="hidden w-full" id="navbar-hamburger">
-                <ul style="background-color: var(--secondary-color)" class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50">
+                <ul style="background-color: var(--primary-color)" class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50">
                     <li>
-                        <a href="/" class="block {{ request()->is('/') ? 'active' : '' }} change py-2 px-3 rounded-sm hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" aria-current="page">Inicio</a>
+                        <a href="/" class="block {{ request()->is('/') ? 'active' : 'hover:bg-gray-100' }} change py-2 px-3 rounded-sm  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" aria-current="page">Inicio</a>
                     </li>
                     <li>
-                        <a href="/productos" class="block {{ request()->is('productos') ? 'active' : '' }} change py-2 px-3 rounded-sm hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Productos</a>
+                        <a href="/productos" class="block {{ request()->is('productos') ? 'active' : 'hover:bg-blue-200' }} change py-2 px-3 rounded-sm  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Productos</a>
                     </li>
                     <li>
-                        <a href="/proveedores" class="block {{ request()->is('proveedores') ? 'active' : '' }} change py-2 px-3 rounded-sm hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Marcas</a>
+                        <a href="/proveedores" class="block {{ request()->is('proveedores') ? 'active' : 'hover:bg-blue-200' }} change py-2 px-3 rounded-sm  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-black ">Marcas</a>
                     </li>
                     <li>
-                        <a href="#contacto" class="block {{ request()->is('contacto') ? 'active' : '' }} change py-2 px-3 rounded-sm hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Contacto</a>
+                        <a href="/#contacto" class="block {{ request()->is('contacto') ? 'active' : 'hover:bg-blue-200' }} change py-2 px-3 rounded-sm  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Contacto</a>
                     </li>
                 </ul>
                 

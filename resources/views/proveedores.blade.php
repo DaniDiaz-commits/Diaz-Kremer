@@ -30,7 +30,7 @@
             <div id="{{ $item->nombre }}" class="container bg-white mb-4 border-6 border-black">
                 <div class="flex flex-col items-center justify-center gap-1 contenedor-proveedor mb-10">
                     <h2 class="text-4xl text-center m-10">{{ $item->nombre }}</h2>
-                    <img class="max-w-200 max-h-100 min-h-100 object-contain" src="{{ asset('img/marcas-logos/' . $item->logo_url) }}"alt="">
+                    <img class="max-w-[200px] max-h-[100px] object-contain" src="{{ asset('img/marcas-logos/' . $item->logo_url) }}" alt="">
                 </div>
             </div>
         @endforeach
