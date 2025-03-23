@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --primary-color: #23518c;
     --secondary-color: #5b7ba6;
     --terciary-color: #88a0bf;
@@ -6,7 +6,7 @@
     --input-color: #f2f2f2;
     --background-color: white;
     --font-family: "Oswald", serif;
-}
+} */
 
 .bg-primary-color {
     background: var(--primary-color);
@@ -94,7 +94,7 @@ header nav .links .link:hover {
     background: var(--primary-color);
     box-shadow: rgb(38, 57, 77) 10px 0px 30px 10px;
 
-    position: static;
+    position: sticky;
     bottom: 0;
 }
 
@@ -191,6 +191,7 @@ select {
 }
 
 .container-form .btn-enviar:hover {
-    background-color: var(--terciary-color);
+    background-color: var(--secondary-color);
+    color: black;
     transform: scale(1.05);
 }

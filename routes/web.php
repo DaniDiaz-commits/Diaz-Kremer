@@ -27,6 +27,10 @@ Route::view('admin.productos', 'productos')
     ->name('productos');
 
 Route::get('/proveedores', ProveedorController::class);
+Route::get('/cookies', function () {
+    return view('cookies');
+});
+
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');

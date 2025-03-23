@@ -64,3 +64,21 @@ select:focus[data-flux-control] {
 /* \[:where(&)\]:size-4 {
     @apply size-4;
 } */
+
+:root {
+    --primary-color: #23518c;
+    --primary-color-rgb: 35, 81, 140;
+
+    --secondary-color: #5b7ba6;
+    --secondary-color-rgb: 91, 123, 166;
+
+    --terciary-color: #88a0bf;
+    --terciary-color-rgb: 136, 160, 191;
+
+    --cuaternary-color: #1b2126;
+    --cuaternary-color-rgb: 27, 33, 38;
+    
+    --input-color: #f2f2f2;
+    --background-color: white;
+    --font-family: "Oswald", serif;
+}

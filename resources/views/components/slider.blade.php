@@ -1,12 +1,31 @@
 <div class="slider">
     <div class="slides">
+        <div class="slide active">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiPEmWui2OJPL4_VERa8FNOJ5Jr4DvDLzbtQ&s" alt="img #3">
+            <a href="https://www.ejemplo1.com" class="slide-btn">Ver más</a>
+        </div>
+        <div class="slide">
+            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/business-banner-template-design-f4b281ca556e3d500e78fc6260273284_screen.jpg?ts=1561497794" alt="img #4">
+            <a href="https://www.ejemplo2.com" class="slide-btn">Explorar</a>
+        </div>
+        <div class="slide">
+            <img src="" alt="img #4">
+            <a href="/proveedores" class="slide-btn">Marcas</a>
+        </div>
+    </div>
+    <button class="prev" onclick="prevSlide()">&#10094;</button>
+    <button class="next" onclick="nextSlide()">&#10095;</button>
+</div>
+
+{{-- <div class="slider">
+    <div class="slides">
         <img src="https://www.arteregal.com/uploads/slider/PINCELLOCOLE.png" alt="img #3" class="active slide">
         <img src="https://www.arteregal.com/uploads/slider/ANUNCIOAPP.jpg" alt="img #4" class="slide">
         <img src="https://www.arteregal.com/uploads/slider/ANUNCIOAPP.jpg" alt="img #4" class="slide">
     </div>
     <button class="prev" onclick="prevSlide()">&#10094</button>
     <button class="next" onclick="nextSlide()">&#10095</button>
-</div>
+</div> --}}
 {{-- 
         
 <div id="controls-carousel" class="relative w-full" data-carousel="static">

@@ -44,6 +44,10 @@ npm run dev
 
 ---
 
+## 👨‍💻 Configuración
+Creación de el .env, usa el archivo '.env.example' para poder usar la app con bases de datos
+Ya sea que elijas MySQL o Sqlite tendrás que ponerlo en el .env.
+
 ## 🛠️ Tecnologías Utilizadas
 
 | Tecnología  | Descripción |

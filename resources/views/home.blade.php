@@ -1,49 +1,51 @@
+<link rel="stylesheet" href="{{ asset('css/slider.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('css/styles.css') }}"> --}}
+<x-header />
 <x-layouts.appD>
-    {{-- <link rel="stylesheet" href="{{ asset('css/styles.css') }}"> --}}
-    <link rel="stylesheet" href="{{ asset('css/slider.css') }}">
-    <x-header />
-
-    <div class="">
-        <main>
-            <x-slider />
-            <section class="quienSomos">
-                <h2 class="text-4xl">Quienes somos</h2>
-                <div class="">
-                    <img src="https://www.arteregal.com/assets/img/quienes-somos.png">
-                </div>
-                <div class="container mx-auto px-4 ">
-                    <p>En Díaz Kremer, nos enorgullecemos de ser una empresa familiar con más de 60 años de trayectoria arraigada en
-                        Burgos. Refundada en el año 2005 con el compromiso de ofrecer soluciones integrales a nuestros clientes, hemos
-                        crecido manteniendo intactos los valores que nos definen: calidad, responsabilidad y cercanía.
-                        <br /> <br />
-                        Nacimos como un pequeño proyecto familiar en Burgos, impulsados por la pasión de distribucion al pequeño comercio. 
-                        Con el tiempo, gracias a la confianza de nuestros
-                        clientes y al esfuerzo de un equipo dedicado, nos convertimos en referentes en la distribución en Castilla y León, expandiendo nuestra
-                        presencia a nivel nacional.
-                        <br />
-                    </p>
-                    <ul>
-                        <li>Mision: Brindar soluciones innovadoras y personalizadas que superen las expectativas de nuestros
-                            clientes, contribuyendo al progreso de los sectores en los que operamos.</li>
-                        <li>Vision: Ser líderes en distribución integral mediante la excelencia operativa, la innovación constante y el
-                            compromiso con un futuro sostenible.</li>
-                        <li>Valores:
-                            <ul class="list-disc list-inside">
-                                <li>Integridad: Actuamos con transparencia y ética en cada proyecto.</li>
-                                <li>Compromiso local: Nos vinculamos con Burgos y su comunidad, apoyando iniciativas sociales y
-                                    culturales.</li>
-                                <li>Sostenibilidad: Implementamos prácticas responsables con el medio ambiente.</li>
-                            </ul>
-                        </li>
+    <x-slider />
+    <section class="quienSomos">
+        <h2 class="text-4xl">Quienes somos</h2>
+        <div class="">
+            <img src="https://www.arteregal.com/assets/img/quienes-somos.png">
+        </div>
+        <div class="container mx-auto px-4 ">
+            <p>En Díaz Kremer, nos enorgullecemos de ser una empresa familiar con más de 60 años de trayectoria
+                arraigada en
+                Burgos. Refundada en el año 2005 con el compromiso de ofrecer soluciones integrales a nuestros clientes,
+                hemos
+                crecido manteniendo intactos los valores que nos definen: calidad, responsabilidad y cercanía.
+                <br /> <br />
+                Nacimos como un pequeño proyecto familiar en Burgos, impulsados por la pasión de distribucion al pequeño
+                comercio.
+                Con el tiempo, gracias a la confianza de nuestros
+                clientes y al esfuerzo de un equipo dedicado, nos convertimos en referentes en la distribución en
+                Castilla y León, expandiendo nuestra
+                presencia a nivel nacional.
+                <br />
+            </p>
+            <ul>
+                <li>Mision: Brindar soluciones innovadoras y personalizadas que superen las expectativas de nuestros
+                    clientes, contribuyendo al progreso de los sectores en los que operamos.</li>
+                <li>Vision: Ser líderes en distribución integral mediante la excelencia operativa, la innovación
+                    constante y el
+                    compromiso con un futuro sostenible.</li>
+                <li>Valores:
+                    <ul class="list-disc list-inside">
+                        <li>Integridad: Actuamos con transparencia y ética en cada proyecto.</li>
+                        <li>Compromiso local: Nos vinculamos con Burgos y su comunidad, apoyando iniciativas sociales y
+                            culturales.</li>
+                        <li>Sostenibilidad: Implementamos prácticas responsables con el medio ambiente.</li>
                     </ul>
-                    <p>
-                        Somos un equipo multidisciplinar de profesionales apasionados, expertos en distribución.
-                    </br>
-                    </p>
-                </div>
-            </section>
+                </li>
+            </ul>
+            <p>
+                Somos un equipo multidisciplinar de profesionales apasionados, expertos en distribución.
+                </br>
+            </p>
+        </div>
+    </section>
 
-            {{-- <section id="testimonials" aria-label="What our customers are saying" class="bg-slate-50 py-20 sm:py-32">
+    {{-- <section id="testimonials" aria-label="What our customers are saying" class="bg-slate-50 py-20 sm:py-32">
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div class="mx-auto max-w-2xl md:text-center">
                         <h2 class="font-display text-3xl text-center tracking-tight text-slate-900 sm:text-4xl">Unas palabras del CEO</h2>
@@ -78,35 +80,31 @@
                     </ul>
                 </div>
             </section> --}}
-            
-            <div id="contacto" class="container-form ">
-                <div class="info-form">
-                    <h2>Contáctanos</h2>
-                    <p>¿Tienes alguna pregunta o necesitas más información?<br> De lunes a viernes 8:15 a 13:45 - 16:00 a 19:30.
-                    </p>
-                    <a href="https://wa.me/+34683580828"><i class="fa fa-phone"></i> +34 123-456-789</a> <!-- 947483961 -->
-                    <a><i class="fa fa-envelope"></i> Email: admon.kremer@grupocrisol.com</a>
-                    <a> <i class="fa fa-map-marked"></i>Burgos, España</a>
-                </div>
-                {{-- HACER MAS VALIDACIONES --}}
-                <form action="https://formsubmit.co/daniel.diaz04d@gmail.com" method="POST" autocomplete="off">
-                    <input type="text" name="nombre" class="campo" placeholder="Ingresa tu nombre"
-                        pattern="[A-Za-z ]{1,50}" required>
-                    <input type="email" name="email" class="campo" placeholder="Ingresa tu correo"
-                        pattern="[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-]([\.]?[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-])+@[a-zA-Z0-9]([^@&%$\/\(\)=?¿!\.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?"
-                        required>
-                    <textarea name="mensaje" placeholder="Ingrese su mensaje" minlength="30"></textarea>
-                    <input type="submit" name="enviar" class="btn-enviar">
-                </form>
-            </div>
-        </main>
+
+    <div id="contacto" class="container-form ">
+        <div class="info-form">
+            <h2>Contáctanos</h2>
+            <p>¿Tienes alguna pregunta o necesitas más información?<br> De lunes a viernes 8:15 a 13:45 - 16:00 a 19:30.
+            </p>
+            <a href="https://wa.me/+34683580828"><i class="fa fa-phone"></i> +34 123-456-789</a> <!-- 947483961 -->
+            <a><i class="fa fa-envelope"></i> Email: admon.kremer@grupocrisol.com</a>
+            <a> <i class="fa fa-map-marked"></i>Burgos, España</a>
+        </div>
+        {{-- HACER MAS VALIDACIONES --}}
+        <form action="https://formsubmit.co/daniel.diaz04d@gmail.com" method="POST" autocomplete="off">
+            <input type="text" name="nombre" class="campo" placeholder="Ingresa tu nombre"
+                pattern="[A-Za-z ]{1,50}" required>
+            <input type="email" name="email" class="campo" placeholder="Ingresa tu correo"
+                pattern="[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-]([\.]?[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-])+@[a-zA-Z0-9]([^@&%$\/\(\)=?¿!\.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?"
+                required>
+            <textarea name="mensaje" placeholder="Ingrese su mensaje" minlength="30"></textarea>
+            <input type="submit" name="enviar" class="btn-enviar">
+        </form>
     </div>
 
-    <x-footer />
-    <script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>
     {{-- <script type="text/javascript" src="{{ asset('js/script.js') }}"></script> --}}
-    <script>
-        
-    </script>
+    <script></script>
     
 </x-layouts.appD>
+<x-footer />
+<script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>

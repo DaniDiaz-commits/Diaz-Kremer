@@ -5,7 +5,7 @@ let intervalId = null;
 let slides = null;
 
 function initializeSlider() {
-    slides = document.querySelectorAll(".slides img");
+    slides = document.querySelectorAll(".slides .slide");
     if (!slides || slides.length === 0) return; 
 
     slides[slideIndex].classList.add("active");

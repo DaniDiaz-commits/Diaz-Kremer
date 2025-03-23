@@ -4,7 +4,7 @@
         <div class=" flex flex-wrap items-center justify-between  p-4">
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{ asset('img/diazkremer-logo.svg') }}" class="h-8 bg-white" alt="Diazkremer Logo" />
-                <span class="self-center text-3xl font-bold whitespace-nowrap dark:text-white">Diaz Kremer</span>
+                <span class="self-center text-3xl  whitespace-nowrap dark:text-white">Diaz Kremer</span>
             </a>
             <div class="links hidden md:flex items-center space-x-2 gap-1">
                 <a href="/" class="{{ request()->is('/') ? 'active' : 'link' }}">Inicio</a>
@@ -27,7 +27,7 @@
             <div class="hidden w-full" id="navbar-hamburger">
                 <ul style="background-color: var(--primary-color)" class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50">
                     <li>
-                        <a href="/" class="block {{ request()->is('/') ? 'active' : 'hover:bg-gray-100' }} change py-2 px-3 rounded-sm  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" aria-current="page">Inicio</a>
+                        <a href="/" class="block {{ request()->is('/') ? 'active' : 'hover:bg-blue-300' }} change py-2 px-3 rounded-sm  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" aria-current="page">Inicio</a>
                     </li>
                     <li>
                         <a href="/productos" class="block {{ request()->is('productos') ? 'active' : 'hover:bg-blue-200' }} change py-2 px-3 rounded-sm  dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Productos</a>
