@@ -10,6 +10,7 @@ Para ejecutar este proyecto, asegúrate de tener instaladas las siguientes herra
 - [PHP](https://www.php.net/downloads.php) **(>= 8.2)**
 - [Composer](https://getcomposer.org/download/) **(>= 2.8.6)**
 - [Node.js](https://nodejs.org/es/download) **(>= 22.0.0)**
+- [Laravel]
 - Base de datos: **MySQL** o **SQLite** (según preferencia, solo se deben ejecutar las migraciones con seeders)
 
 ### 📥 Instalación del Proyecto
@@ -25,7 +26,7 @@ composer install
 npm install
 ```
 
-#### 🔹 Instalación de dependencias Node.js (Tailwind, Flowbite, etc.):
+#### 🔹 Instalación global de laravel:
 ```bash
 composer global require laravel/installer
 ```
