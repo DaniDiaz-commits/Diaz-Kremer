@@ -15,7 +15,7 @@ class Productos extends Component
 
     public $sortColumn = 'id'; 
     public $sortDirection = 'asc';
-    public $productos, $productoId;
+    public $productoId;
 
     public function sortBy($column)
     {
@@ -25,30 +25,32 @@ class Productos extends Component
             $this->sortColumn = $column;
             $this->sortDirection = 'asc';
         }
-        $this->reloadProductos();
+        $this->resetPage();
+        // $this->reloadProductos();
     }
 
-    public function mount() 
-    {
-        $this->productos = Producto::all();
-        // $productos = Producto::orderBy($this->sortColumn, $this->sortDirection)->get();
-        // $this->productos = Producto::with(['familia', 'proveedor'])->get();
-    }
+    // public function mount() 
+    // {
+    //     $this->productos = Producto::all();
+    //     // $productos = Producto::orderBy($this->sortColumn, $this->sortDirection)->get();
+    //     // $this->productos = Producto::with(['familia', 'proveedor'])->get();
+    // }
     public function render()
     {
-        return view('livewire.productos');
+        $productos = Producto::orderBy($this->sortColumn, $this->sortDirection)
+        ->paginate(25);
+        return view('livewire.productos', compact('productos'));
     }
 
-    #[On("reloadProductos")]
-    public function reloadProductos()
-    {
-        $this->productos = Producto::orderBy($this->sortColumn, $this->sortDirection)->get();
-        // $this->productos = Producto::all();
-        // $this->productos = Producto::with(['familia', 'proveedor'])->get();
-    }
-    public function edit ($id) {
-        $this->dispatch("editProducto", $id);
-    }
+    // #[On("reloadProductos")]
+    // public function reloadProductos()
+    // {
+    //     $this->productos = Producto::orderBy($this->sortColumn, $this->sortDirection)->get();
+    //     // $this->productos = Producto::all();
+    //     // $this->productos = Producto::with(['familia', 'proveedor'])->get();
+    // }
+    public function edit ($id) { $this->dispatch("editProducto", $id); }
+
     public function delete ($id) 
     {
         $this->productoId = $id;
@@ -58,7 +60,7 @@ class Productos extends Component
     public function destroy() 
     {
         Producto::find($this->productoId)->delete();
-        $this->reloadProductos();
+        // $this->reloadProductos();
         Flux::modal('delete-producto')->close();
     }
 }

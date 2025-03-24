@@ -5,13 +5,22 @@ namespace App\Livewire;
 use App\Models\Familia;
 use Flux\Flux;
 use Livewire\Component;
+use Livewire\WithPagination;
 use Livewire\Attributes\On;
 
 class Familias extends Component
 {
-    public $sortColumn = 'id'; 
+    use WithPagination;
+
+    public $sortColumn = 'id';
     public $sortDirection = 'asc';
-    public $familias, $familiaId;
+    // public $search = '';
+    public $familiaId;
+
+    // public function mount() 
+    // {
+    //     $this->familias = Familia::all();
+    // }
 
     public function sortBy($column)
     {
@@ -21,37 +30,32 @@ class Familias extends Component
             $this->sortColumn = $column;
             $this->sortDirection = 'asc';
         }
-        $this->reloadFamilias();
+        $this->resetPage();
     }
-    public function mount() 
-    {
-        $this->familias = Familia::all();
-    }
+
     public function render()
     {
-        return view('livewire.familias');
+        $familias = Familia::orderBy($this->sortColumn, $this->sortDirection)
+            ->paginate(25);
+        // $familias = Familia::where('nombre', 'like', '%' . $this->search . '%')
+        //     ->orWhere('descripcion', 'like', '%' . $this->search . '%')
+        //     ->orderBy($this->sortColumn, $this->sortDirection)
+        //     ->paginate(25);
+        return view('livewire.familias', compact('familias'));
     }
 
-    #[On("reloadFamilias")]
-    public function reloadFamilias()
-    {
-        $this->familias = Familia::orderBy($this->sortColumn, $this->sortDirection)->get();
-    }
+    public function edit($id) { $this->dispatch("editFamilia", $id); }
 
-    public function edit($id) {
-        $this->dispatch("editFamilia", $id);
-    }
-    public function delete ($id) 
+    public function delete($id)
     {
         $this->familiaId = $id;
         Flux::modal('delete-familia')->show();
         $this->dispatch("deleteFamilia", $id);
     }
-    public function destroy() 
+
+    public function destroy()
     {
-        Familia::find($this->familiaId)->delete();
-        $this->reloadFamilias();
+        Familia::find($this->familiaId)?->delete();
         Flux::modal('delete-familia')->close();
     }
 }
-

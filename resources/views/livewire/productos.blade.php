@@ -1,7 +1,10 @@
 <div>
+    <div class="flex justify-between items-center">
+        <flux:input size="sm" class="max-w-80" placeholder="Buscar por..." wire:model.debounce.500ms="search" />
     <flux:modal.trigger name="create-producto">
         <flux:button>Crea productos</flux:button>
     </flux:modal.trigger>
+    </div>
 
     <livewire:producto-create />
     <livewire:producto-edit />
@@ -42,7 +45,7 @@
                         
                     </th>
                     {{-- <th scope="col" class="px-6 py-3">Codigo</th> --}}
-                    <th scope="col" class="px-3 py-3 cursor-pointer" wire:click="sortBy('codigo')">
+                    <th scope="col" class="px-3 py-3 cursor-pointer text-center" wire:click="sortBy('codigo')">
                         Codigo
                         @if ($sortColumn === 'codigo')
                             @if ($sortDirection === 'asc') ⬆️ @else ⬇️ @endif
@@ -59,7 +62,7 @@
                     </th>
                     <th scope="col" class="px-6 py-3">Descripcion</th>
                     {{-- <th scope="col" class="px-6 py-3">Precio</th> --}}
-                    <th scope="col" class="px-2 py-3 cursor-pointer" wire:click="sortBy('precio')">
+                    <th scope="col" class="px-1 py-3 cursor-pointer text-center" wire:click="sortBy('precio')">
                         Precio
                         @if ($sortColumn === 'precio')
                             @if ($sortDirection === 'asc') ⬆️ @else ⬇️ @endif
@@ -100,9 +103,9 @@
                                 {{ $producto->descripcion }}
                             </div>
                         </td>
-                        <td class="px-6 py-2 text-gray-600 dark:text-gray-300">{{ $producto->precio }}</td>
-                        <td class="px-6 py-2 text-gray-600 dark:text-gray-300">{{ $producto->stock }}</td>
-                        <td class="px-6 py-2 text-gray-600 dark:text-gray-300">{{ $producto->rating }}</td>
+                        <td class="px-6 py-2 text-gray-600 dark:text-gray-300 text-center">{{ $producto->precio }}</td>
+                        <td class="px-6 py-2 text-gray-600 dark:text-gray-300 text-center">{{ $producto->stock }}</td>
+                        <td class="px-6 py-2 text-gray-600 dark:text-gray-300 text-center">{{ $producto->rating }}</td>
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300">{{ $producto->familia->nombre }}</td>
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300">{{ $producto->proveedor->nombre }}</td>
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300">
@@ -119,5 +122,8 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="mt-4">
+        {{ $productos->links() }}
     </div>
 </div>
