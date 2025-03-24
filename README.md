@@ -25,6 +25,11 @@ composer install
 npm install
 ```
 
+#### 🔹 Instalación de dependencias Node.js (Tailwind, Flowbite, etc.):
+```bash
+composer global require laravel/installer
+```
+
 #### 🔹 Ejecución de las migraciones con los seeders, para la creación de las tablas así como ingresar los datos:
 ```bash 
 php artisan migrate --seed
