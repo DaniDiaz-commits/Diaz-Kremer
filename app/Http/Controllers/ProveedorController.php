@@ -10,6 +10,7 @@ class ProveedorController extends Controller
     public function __invoke() 
     {
         $proveedores = Proveedor::all();
-        return view('proveedores', compact('proveedores'));
+        return view('proveedoresMarcas', compact('proveedores'));
+        // return view('Adminproveedores', compact('proveedores'));
     }
 }

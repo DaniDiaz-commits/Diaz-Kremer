@@ -55,8 +55,9 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Mantiene el botón centrado */
-    background: transparent;
+    transform: translate(-50%, -50%);
+    background: var(--primary-color) ;
+    opacity: 0.3;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -64,10 +65,11 @@
     font-weight: bold;
     border-radius: 15px;
     transition: background 0.3s ease;
-    z-index: 10; /* Asegura que el botón esté por encima de la imagen */
+    z-index: 10;
+
 }
 
 .slide-btn:hover {
     background-color: var(--primary-color);
-    /* opacity: 0.6;  */
+    opacity: 0.9; 
 }

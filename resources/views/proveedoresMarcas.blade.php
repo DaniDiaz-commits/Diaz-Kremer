@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="{{ asset('css/sliderMarcas.css') }}">
-<x-header />
+{{-- <x-header /> --}}
 <x-layouts.appD>
     <h1 class="text-6xl text-center mt-6">Marcas con las que trabajamos</h1>
     <p class="text-m text-center mt-7">Conoce los proveedores que trabajan con nosotros, clickando en la imagen irás
@@ -36,4 +36,3 @@
     </div>
 
 </x-layouts.appD>
-<x-footer />

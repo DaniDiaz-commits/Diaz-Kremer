@@ -14,9 +14,15 @@
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
-                    <flux:navlist.item icon="home" :href="route('posts')" :current="request()->routeIs('posts')" wire:navigate>{{ __('Posts') }}</flux:navlist.item>
-                    <flux:navlist.item icon="home" :href="route('familias')" :current="request()->routeIs('familias')" wire:navigate>{{ __('Familias') }}</flux:navlist.item>
-                    <flux:navlist.item icon="home" :href="route('productos')" :current="request()->routeIs('productos')" wire:navigate>{{ __('Productos') }}</flux:navlist.item>
+                    {{-- <flux:navlist.item icon="home" :href="route('posts')" :current="request()->routeIs('posts')" wire:navigate>{{ __('Posts') }}</flux:navlist.item> --}}
+                    <flux:navlist.item icon="home" :href="route('adminFamilias')" :current="request()->routeIs('adminFamilias')" wire:navigate>{{ __('Familias') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('adminProductos')" :current="request()->routeIs('adminProductos')" wire:navigate>{{ __('Productos') }}</flux:navlist.item>
+                </flux:navlist.group>
+                <flux:navlist.group :heading="__('Vistas')" class="grid">
+                    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                    {{-- <flux:navlist.item icon="home" :href="route('posts')" :current="request()->routeIs('posts')" wire:navigate>{{ __('Posts') }}</flux:navlist.item> --}}
+                    <flux:navlist.item icon="home" :href="route('adminFamilias')" :current="request()->routeIs('adminFamilias')" wire:navigate>{{ __('Familias') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('adminProductos')" :current="request()->routeIs('adminProductos')" wire:navigate>{{ __('Productos') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 

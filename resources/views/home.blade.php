@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ asset('css/slider.css') }}">
 {{-- <link rel="stylesheet" href="{{ asset('css/styles.css') }}"> --}}
-<x-header />
+{{-- <x-header /> --}}
 <x-layouts.appD>
     <x-slider />
     <section class="quienSomos">
@@ -106,5 +106,4 @@
     <script></script>
     
 </x-layouts.appD>
-<x-footer />
 <script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>
