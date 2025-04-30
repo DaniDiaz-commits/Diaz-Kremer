@@ -59,9 +59,9 @@ class ProductoSeeder extends Seeder
         $this->productier('#000014', 'Cubitera de plástico', 'Cubitera para hielos.', 250, 50, 5, 1, 1, "asset('img/productos/37587_AR.jpg')");
         $this->productier('#000015', 'Cinta correctora', 'Cinta correctora para hojas.', 250, 50, 5, 1, 1, "asset('img/productos/57725_AR.jpg')");
         $this->productier('#000016', 'Tabla de cortar 35x35', 'Tabla de madera para cortar, tamaño 35x35.', 250, 50, 5, 1, 1, "asset('img/productos/56437_AR.jpg')");
-        $this->productier('#000017', 'Tabla de planchar', 'Pack de tablas de planchar tamaño 30x45.', 250, 50, 5, 1, 1, "asset('img/productos/78298_AR.jpg')");
+        $this->productier('#000017', 'Pack tablas de planchar', 'Pack de tablas de planchar tamaño 30x45.', 250, 50, 5, 1, 1, "asset('img/productos/78298_AR.jpg')");
         $this->productier('#000018', 'Bote de cola blanca', 'Bote de cola blanca.', 250, 50, 5, 1, 1, "asset('img/productos/57712.jpg')");
-        $this->productier('#000019', 'Bote pegamento de barra blanca', 'Bote de cola blanca.', 250, 50, 5, 1, 1, "asset('img/productos/57719_AR.jpg')");
+        $this->productier('#000019', 'Bote pegamento de barra blanca', 'Bote de pegamento blanco.', 250, 50, 5, 1, 1, "asset('img/productos/57719_AR.jpg')");
         $this->productier('#000020', 'Hucha para guardar dinero diseño con billete de 20€', 'Bote para guardar dinero .', 250, 50, 5, 1, 1, "asset('img/productos/34053.jpg')");
         $this->productier('#000021', 'Hucha para guardar dinero diseño con moneda de 1€', 'Bote para para guardar dinero.', 250, 50, 5, 1, 1, "asset('img/productos/34118_AR.jpg')");
         $this->productier('#000022', 'Paraguas grande', 'Paraguas grande de tela.', 250, 50, 5, 467, 12, "asset('img/productos/88736.jpg')");
