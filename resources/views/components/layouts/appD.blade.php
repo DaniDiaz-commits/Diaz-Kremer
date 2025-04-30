@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        @include('partials.head')
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Diaz Kremer') }}</title>
+        {{-- <title>{{ config('app.name', 'Diaz Kremer') }}</title> --}}
+        <title>{{ $title ?? 'Diaz Kremer' }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <!-- CSS -->
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-        <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+    <body class="font-sans antialiased  bg-gray-100 dark:bg-gray-900">
             {{-- @include('layouts.navigation') --}}
 
             <!-- Page Heading -->
@@ -34,6 +30,5 @@
                 {{ $slot }}
             </main>
             <x-footer />
-        </div>
     </body>
 </html>

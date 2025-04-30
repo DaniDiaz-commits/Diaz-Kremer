@@ -29,6 +29,6 @@ class UserSeeder extends Seeder
         // $user->avatar = "https://ui-avatars.com/api/?name=".$user->name;
         $user->save();
 
-        // User::factory(10)->create();
+        User::factory(10)->create();
     }
 }

@@ -10,25 +10,27 @@ class ProductoController extends Controller
 {
     public function index()
     {
-        $productos = Producto::orderBy('rating', 'desc')->paginate(15); 
+        $productos = Producto::orderBy('rating', 'desc')->paginate(15);
         $familias = Familia::orderBy('id', 'asc')->get();
 
         return view('productos.index', compact('productos', 'familias'));
     }
 
-
-
     // public function create() {
     //     "Formulario de crear";
     // }
 
+    // public function show($id)
+    // {
+    //     // compact($id)
+    //     $producto = Producto::find($id);
+    //     return view('productos.show', ['producto' => $producto]);
+    // }
+
     public function show($id)
     {
-        // compact($id)
-        $producto = Producto::find($id);
-        return view('productos.show', [
-            'producto' => $producto
-        ]);
+        $producto = Producto::with('comentarios.usuario')->findOrFail($id);
+        return view('productos.show', compact('producto'));
     }
 
     public function buscar(Request $request)
@@ -47,7 +49,6 @@ class ProductoController extends Controller
 
     public function orden(Request $request)
     {
-
         // $productos = Producto::where('familia_id', $request->nombre);
         if ($request->filled('nombre')) { // Usar filled() en lugar de has() para evitar valores vacíos
             $productos = Producto::where('familia_id', $request->nombre)->get();
@@ -102,4 +103,52 @@ class ProductoController extends Controller
         $familias = Familia::orderBy('id', 'asc')->get();
         return view('productos.index', compact('productos', 'familias'));
     }
+
+    public function order(Request $request)
+{
+    $query = Producto::query();
+
+    if ($request->filled('familia')) {
+        $query->where('id_familia', $request->familia);
+    }
+
+    if ($request->filled('orden')) {
+        switch ($request->orden) {
+            case 'az':
+                $query->orderBy('nombre', 'asc');
+                break;
+            case 'za':
+                $query->orderBy('nombre', 'desc');
+                break;
+            case 'relevancia':
+                $query->orderBy('relevancia', 'desc');
+                break;
+            case 'mas-vendidos':
+                $query->orderBy('ventas', 'desc');
+                break;
+            case 'mejor-valorados':
+                $query->orderBy('rating', 'desc');
+                break;
+        }
+    }
+
+    if ($request->filled('precio')) {
+        switch ($request->precio) {
+            case '1': $query->whereBetween('precio', [0, 30]); break;
+            case '2': $query->whereBetween('precio', [30, 60]); break;
+            case '3': $query->whereBetween('precio', [70, 100]); break;
+            case '4': $query->where('precio', '>', 100); break;
+        }
+    }
+
+    if ($request->filled('rating')) {
+        $query->where('rating', '=', $request->rating);
+    }
+
+    $productos = $query->paginate(12);
+    $familias = Familia::all();
+
+    return view('productos.index', compact('productos', 'familias'));
+}
+
 }

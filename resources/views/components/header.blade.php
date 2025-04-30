@@ -4,7 +4,7 @@
         <div class=" flex flex-wrap items-center justify-between  p-4">
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{ asset('img/diazkremer-logo.svg') }}" class="h-8 bg-white" alt="Diazkremer Logo" />
-                <span class="self-center text-3xl  whitespace-nowrap dark:text-white">Diaz Kremer</span>
+                <span class="self-center pl-2 text-2xl whitespace-nowrap text-white">Diaz Kremer</span>
             </a>
             <div class="links hidden md:flex items-center space-x-2 gap-1">
                 <a href="/" class="{{ request()->is('/') ? 'active' : 'link' }}">Inicio</a>

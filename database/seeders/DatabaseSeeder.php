@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             FamiliaSeeder::class,
             ProveedorSeeder::class,
             ProductoSeeder::class,
+            ComentarioSeeder::class
            ]);
     
         // User::factory(10)->create();

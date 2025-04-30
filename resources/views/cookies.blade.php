@@ -1,6 +1,5 @@
-<x-header />
 <x-layouts.appD class="container mx-auto p-5 flex-grow">
-    <h1 class="text-5xl text-center my-5">Política de Cookies</h1>
+    <h1 class="text-5xl text-center my-5 underline">Política de Cookies</h1>
 
     <section class="container mx-auto">
         <h2 class="text-2xl font-bold my-3">1. Información sobre el uso de cookies</h2>
@@ -37,4 +36,3 @@
         </ul>
     </section>
 </x-layouts.appD>
-<x-footer class="mt-auto" />

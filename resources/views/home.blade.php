@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="{{ asset('css/slider.css') }}">
 {{-- <link rel="stylesheet" href="{{ asset('css/styles.css') }}"> --}}
 {{-- <x-header /> --}}
-<x-layouts.appD>
+<x-layouts.appD title="Diaz Kremer - Inicio">
     <x-slider />
     <section class="quienSomos">
         <h2 class="text-4xl">Quienes somos</h2>
         <div class="">
-            <img src="https://www.arteregal.com/assets/img/quienes-somos.png">
+            <img src="https://www.arteregal.com/assets/img/quienes-somos.png" class="dark:invert" alt="Diaz kremer">
         </div>
         <div class="container mx-auto px-4 ">
             <p>En Díaz Kremer, nos enorgullecemos de ser una empresa familiar con más de 60 años de trayectoria
@@ -81,23 +81,22 @@
                 </div>
             </section> --}}
 
-    <div id="contacto" class="container-form ">
+    <div id="contacto" class="container-form">
         <div class="info-form">
-            <h2>Contáctanos</h2>
-            <p>¿Tienes alguna pregunta o necesitas más información?<br> De lunes a viernes 8:15 a 13:45 - 16:00 a 19:30.
-            </p>
+            <h2 class=" dark:text-black">Contáctanos</h2>
+            <p class=" dark:text-black">¿Tienes alguna pregunta o necesitas más información?<br> De lunes a viernes 8:15 a 13:45 - 16:00 a 19:30.</p>
             <a href="https://wa.me/+34683580828"><i class="fa fa-phone"></i> +34 123-456-789</a> <!-- 947483961 -->
-            <a><i class="fa fa-envelope"></i> Email: admon.kremer@grupocrisol.com</a>
-            <a> <i class="fa fa-map-marked"></i>Burgos, España</a>
+            <a href=""><i class="fa fa-envelope"></i> Email: admon.kremer@grupocrisol.com</a>
+            <a href=""><i class="fa fa-map-marked"></i>Burgos, España</a>
         </div>
         {{-- HACER MAS VALIDACIONES --}}
         <form action="https://formsubmit.co/daniel.diaz04d@gmail.com" method="POST" autocomplete="off">
-            <input type="text" name="nombre" class="campo" placeholder="Ingresa tu nombre"
+            <input type="text" name="nombre" class="campo dark:text-black" placeholder="Ingresa tu nombre"
                 pattern="[A-Za-z ]{1,50}" required>
-            <input type="email" name="email" class="campo" placeholder="Ingresa tu correo"
+            <input type="email" name="email" class="campo dark:text-black" placeholder="Ingresa tu correo"
                 pattern="[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-]([\.]?[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-])+@[a-zA-Z0-9]([^@&%$\/\(\)=?¿!\.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?"
                 required>
-            <textarea name="mensaje" placeholder="Ingrese su mensaje" minlength="30"></textarea>
+            <textarea name="mensaje" placeholder="Ingrese su mensaje" minlength="30" class=" dark:text-black"></textarea>
             <input type="submit" name="enviar" class="btn-enviar">
         </form>
     </div>

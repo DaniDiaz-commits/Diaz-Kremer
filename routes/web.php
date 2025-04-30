@@ -20,6 +20,8 @@ Route::view('admin.familias', 'AdminFamilias')->middleware(['auth', 'verified'])
 Route::view('admin.productos', 'AdminProductos')->middleware(['auth', 'verified'])->name('adminProductos');
 
 Route::get('/productos',  [ProductoController::class, 'index'])->name('productos');
+Route::get('/productos/filtrar', [ProductoController::class, 'order'])->name('productos.order');
+
 Route::get('/producto/{id}', [ProductoController::class, 'show'])->name('productos.show');
 
 

@@ -9,12 +9,16 @@
             <a href="https://www.ejemplo2.com" class="slide-btn">Explorar</a>
         </div>
         <div class="slide">
-            <img src="" alt="img #4">
+            <img src="{{ asset('img/banner/diazKremer-outside.png')}}" alt="img #4">
+            <a href="/proveedores" class="slide-btn">Marcas</a>
+        </div>
+        <div class="slide">
+            <img src="{{ asset('img/banner/bannerNavidad-dk.png')}}" alt="img #4">
             <a href="/proveedores" class="slide-btn">Marcas</a>
         </div>
     </div>
-    <button class="prev" onclick="prevSlide()">&#10094;</button>
-    <button class="next" onclick="nextSlide()">&#10095;</button>
+    <button class="prev hidden md:block" onclick="prevSlide()">&#10094;</button>
+    <button class="next hidden md:block" onclick="nextSlide()">&#10095;</button>
 </div>
 
 {{-- <div class="slider">

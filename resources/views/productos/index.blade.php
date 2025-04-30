@@ -1,22 +1,69 @@
-<x-layouts.appD>
-    
-    <div class="flex flex-wrap p-5 bg-gray-100 shadow-lg">
+<x-layouts.appD title="Diaz kremer - Productos">
+    <div class="flex flex-wrap p-5 text-black bg-gray-100 shadow-lg">
         <!-- Sidebar: Filtros -->
         <div class="hidden md:block w-1/4 lg:w-1/5 p-5 bg-gray-200 shadow-md mb-5 md:mb-0">
             <h2 class="text-xl font-semibold mb-4">Filtros</h2>
             <!-- Filtros -->
-            <div class="mb-4">
-                <h3 class="font-semibold">Categorías</h3>
-                <ul>
-                    <li><a href="#" class="text-blue-500">Categoría 1</a></li>
-                    <li><a href="#" class="text-blue-500">Categoría 2</a></li>
-                    <li><a href="#" class="text-blue-500">Categoría 3</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-semibold">Precio</h3>
-                <input type="range" min="0" max="1000" step="50" class="w-full" />
-            </div>
+            <form id="formulario" action="{{ route('productos.order') }}" method="GET" class="max-w-sm mx-auto mb-8 ml-4 mr-4 mt-8">
+                @csrf
+                <label for="familias" class="block mb-2 text-xl font-medium text-center text-gray-900">Selecciona una familia</label>
+                <select id="familias" name="familia" class="bg-gray-50 border mx-auto overflow-hidden border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="">Todas las familias</option>
+
+                    @foreach ($familias as $familia)
+                        <option name="nombre" value="{{ $familia->id }}">{{ $familia->nombre }}</option>
+                    @endforeach
+
+                </select>
+                <h1 class="block mb-2 mt-2 text-2xl text-center font-medium text-gray-900">Ordenar por</h1>
+                <p class="block mb-2 mt-2 text-xl font-medium text-gray-900">Nombre</p>
+                <div>
+                    @php
+                        $ordenes = [
+                            'A-Z' => 'az',
+                            'Z-A' => 'za',
+                            'Por relevancia' => 'relevancia',
+                            'Más vendidos' => 'mas-vendidos',
+                            'Mejor valorados' => 'mejor-valorados',
+                        ];
+                    @endphp
+
+                    @foreach ($ordenes as $label => $value)
+                        <label class="block">
+                            <input type="radio" name="orden" value="{{ $value }}"
+                                class="w-4 h-4 text-blue-900 bg-gray-100 border-gray-300 focus:bg-none">
+                            <span class="check mr-2"></span> {{ $label }}
+                        </label>
+                    @endforeach
+
+                </div>
+                <p class="block mb-2 mt-2 text-xl font-medium text-gray-900">Precio</p>
+                <div>
+                    @php
+                        $prices = ['All', '0 € - 30 €', '30 € -  60€', '70 € - 100 €', '+100 €'];
+                        $contador = 0;
+                    @endphp
+
+                    @foreach ($prices as $price)
+                        <label class="block">
+                            <input type="radio" name="precio" value="{{ $contador++ }}"
+                                class="w-4 h-4 text-blue-900 bg-gray-100 border-gray-300 focus:bg-none">
+                            <span class="check mr-2"></span> {{ $price }}
+                        </label>
+                    @endforeach
+                </div>
+                <p class="block mb-2 mt-2 text-xl font-medium text-gray-900">Rating</p>
+                <div>
+                    @for ($i = 5; $i >= 1; $i--)
+                        <label class="block">
+                            <input type="radio" name="rating" value="{{ $i }}"
+                                class="w-4 h-4 text-blue-900 bg-gray-100 border-gray-300 focus:bg-none">
+                            <span class="check mr-2"></span> {{ $i }} ⭐
+                        </label>
+                    @endfor
+                </div>
+                </br></br></br></br></br></br>
+            </form>
         </div>
         
         <!-- Productos -->

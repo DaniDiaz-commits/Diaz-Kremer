@@ -32,4 +32,9 @@ class Producto extends Model
     {
         return $this->belongsTo(Proveedor::class, 'id_proveedor');
     }
+
+    public function comentarios()
+    {
+        return $this->hasMany(Comentario::class, 'id_producto');  // Relación inversa con comentarios
+    }
 }

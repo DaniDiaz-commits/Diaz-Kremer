@@ -82,3 +82,23 @@ select:focus[data-flux-control] {
     --background-color: white;
     --font-family: "Oswald", serif;
 }
+
+.bg-primary {
+    background-color: var(--primary-color);
+    color: white; /* Ajusta el color del texto según sea necesario */
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.bg-tertiary {
+    background-color: var(--terciary-color);
+    color: black;
+}
+
+.bg-quaternary {
+    background-color: var(--cuaternary-color);
+    color: white;
+}

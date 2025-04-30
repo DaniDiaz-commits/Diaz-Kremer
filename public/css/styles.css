@@ -1,4 +1,4 @@
-/* :root {
+:root {
     --primary-color: #23518c;
     --secondary-color: #5b7ba6;
     --terciary-color: #88a0bf;
@@ -6,7 +6,7 @@
     --input-color: #f2f2f2;
     --background-color: white;
     --font-family: "Oswald", serif;
-} */
+}
 
 .bg-primary-color {
     background: var(--primary-color);
