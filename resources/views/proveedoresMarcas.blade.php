@@ -1,9 +1,8 @@
 <link rel="stylesheet" href="{{ asset('css/sliderMarcas.css') }}">
 {{-- <x-header /> --}}
 <x-layouts.appD title="Diaz Kremer - Proveedores">
-    <h1 class="text-6xl text-center mt-6">Marcas con las que trabajamos</h1>
-    <p class="text-m text-center mt-7">Conoce los proveedores que trabajan con nosotros, clickando en la imagen irás
-        a su presentación.</p>
+    <h1 class="text-6xl text-center mt-6 text-black">Marcas con las que trabajamos</h1>
+    <p class="text-m text-center mt-7 text-black">Conoce los proveedores que trabajan con nosotros, clickando en la imagen irás a su presentación.</p>
     <div class="slider bg-white">
         <div class="media-scroller">
             @foreach ($proveedores as $item)
@@ -23,16 +22,22 @@
     </div>
 
 
-    <div class="container mx-auto">
-        @foreach ($proveedores as $item)
-            <div id="{{ $item->nombre }}" class="container bg-gray-100 mb-4 border-6 border-black">
-                <div class="flex flex-col items-center justify-center gap-1 contenedor-proveedor mb-10">
-                    <h2 class="text-4xl text-center m-10 dark:text-black">{{ $item->nombre }}</h2>
-                    <img class="max-w-[200px] max-h-[100px] object-contain"
-                        src="{{ asset('img/marcas-logos/' . $item->logo_url) }}" alt="">
+    <div class="container mx-auto px-6 py-10">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+            @foreach ($proveedores as $item)
+                <div id="{{ $item->nombre }}"
+                     class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <div class="flex flex-col items-center text-center p-6">
+                        <img class="w-24 h-16 object-contain mb-4"
+                             src="{{ asset('img/marcas-logos/' . $item->logo_url) }}" alt="{{ $item->nombre }}">
+                        <h2 class="text-base font-semibold text-gray-800">{{ $item->nombre }}</h2>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
+    
+    
+    
 
 </x-layouts.appD>

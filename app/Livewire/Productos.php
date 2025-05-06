@@ -63,4 +63,11 @@ class Productos extends Component
         // $this->reloadProductos();
         Flux::modal('delete-producto')->close();
     }
+
+    #[On('reloadProductos')]
+    public function reloadProductos()
+    {
+        $productos = Producto::orderBy($this->sortColumn, $this->sortDirection)->paginate(25);
+        return view('livewire.productos', compact('productos'));
+    }
 }

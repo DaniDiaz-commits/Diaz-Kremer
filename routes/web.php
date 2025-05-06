@@ -7,11 +7,12 @@ use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', HomeController::class)->name('home');
 // Route::get('/', HomeController::class)->name('welcome');
 
-Route::view('admin.dashboard', 'AdminDashboard')->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('admin/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 // Route::view('admin.posts', 'posts')->middleware(['auth', 'verified'])->name('posts');
 

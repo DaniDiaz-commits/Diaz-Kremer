@@ -9,6 +9,8 @@ use Livewire\Component;
 class PostCreate extends Component
 {
     public $title, $body;
+    
+
     public function render()
     {
         return view('livewire.post-create');

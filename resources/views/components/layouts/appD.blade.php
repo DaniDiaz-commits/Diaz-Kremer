@@ -4,7 +4,6 @@
         @include('partials.head')
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        {{-- <title>{{ config('app.name', 'Diaz Kremer') }}</title> --}}
         <title>{{ $title ?? 'Diaz Kremer' }}</title>
 
         <!-- CSS -->
@@ -12,23 +11,16 @@
         <!-- Scripts -->
         <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
     </head>
-    <body class="font-sans antialiased  bg-gray-100 dark:bg-gray-900">
-            {{-- @include('layouts.navigation') --}}
+    <body class="font-sans antialiased bg-gray-100 min-h-screen flex flex-col">
 
             <!-- Page Heading -->
             <x-header />
-            {{-- @isset($header)
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset --}}
 
             <!-- Page Content -->
-            <main>
+            <main class="flex-grow">
                 {{ $slot }}
             </main>
+
             <x-footer />
     </body>
 </html>

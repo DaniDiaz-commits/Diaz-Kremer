@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function __invoke() {
-        $users = User::inRandomOrder()->limit(3)->get();
-        return view("home", compact("users"));
+        // $users = User::inRandomOrder()->limit(3)->get();
+        // return view("home", compact("users"));
+        return view("home");
     }
 }

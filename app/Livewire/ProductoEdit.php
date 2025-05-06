@@ -2,7 +2,9 @@
 
 namespace App\Livewire;
 
+use App\Models\Familia;
 use App\Models\Producto;
+use App\Models\Proveedor;
 use Flux\Flux;
 use Livewire\Component;
 use Livewire\Attributes\On;
@@ -10,10 +12,18 @@ use Livewire\Attributes\On;
 class ProductoEdit extends Component
 {
     public $codigo, $nombre, $descripcion, $precio, $stock, $rating, $id_familia, $id_proveedor, $img_url, $productoId;
-
+    public $familias = [];
+    public $proveedores = [];
+    
     public function render()
     {
         return view('livewire.producto-edit');
+    }
+
+    public function mount()
+    {
+        $this->familias = Familia::all();
+        $this->proveedores = Proveedor::all();
     }
 
     #[On("editProducto")]
@@ -35,14 +45,14 @@ class ProductoEdit extends Component
     public function update() 
     {
         $this->validate([
-            "codigo" => "required",
-            "nombre" => "required",
-            "descripcion" => "required",
-            "precio" => "required",
-            "stock" => "required",
-            "rating" => "required",
-            "id_familia" => "required",
-            "id_proveedor" => "required",
+            "codigo" => "required|regex:/^#\d{6}$/",
+            "nombre" => "required|string|max:50",
+            "descripcion" => "required|string|max:500",
+            "precio" => "required|numeric|min:0",
+            "stock" => "required|integer|min:0",
+            "rating" => "required|numeric|between:1,5",
+            "id_familia" => "required|integer",
+            "id_proveedor" => "required|integer",
         ]);
         
         $producto = Producto::find($this->productoId);
@@ -56,5 +66,10 @@ class ProductoEdit extends Component
         $producto->id_familia = $this->id_familia;
         $producto->id_proveedor = $this->id_proveedor;
         $producto->img_url = $this->img_url ?? '';
+
+        $producto->save();
+
+        Flux::modal('edit-producto')->close();
+        $this->dispatch('reloadProductos');
     }
 }

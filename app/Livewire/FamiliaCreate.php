@@ -14,9 +14,10 @@ class FamiliaCreate extends Component
         return view('livewire.familia-create');
     }
 
+    
     public function submit() {
         $this->validate([
-            "nombre" => "required\string|unique:familias,nombre",
+            "nombre" => "required|string|unique:familias,nombre",
             'descripcion' => 'required|string|max:250|unique:familias,descripcion',
         ]);
 

@@ -16,7 +16,7 @@ class Familias extends Component
     public $sortDirection = 'asc';
     // public $search = '';
     public $familiaId;
-
+    
     // public function mount() 
     // {
     //     $this->familias = Familia::all();
@@ -44,7 +44,10 @@ class Familias extends Component
         return view('livewire.familias', compact('familias'));
     }
 
-    public function edit($id) { $this->dispatch("editFamilia", $id); }
+    public function edit($id) 
+    { 
+        $this->dispatch("editFamilia", $id); 
+    }
 
     public function delete($id)
     {
@@ -57,5 +60,12 @@ class Familias extends Component
     {
         Familia::find($this->familiaId)?->delete();
         Flux::modal('delete-familia')->close();
+    }
+
+    #[On('reloadFamilias')]
+    public function reloadFamilias()
+    {
+        $familias = Familia::orderBy($this->sortColumn, $this->sortDirection)->paginate(25);
+        return view('livewire.familias', compact('familias'));
     }
 }

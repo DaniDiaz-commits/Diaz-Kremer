@@ -29,11 +29,18 @@ class FamiliaEdit extends Component
     {
         $this->validate([
             'nombre' => "required",
-            'descripcion' => "required",
+            'descripcion' => "nullable",
         ]);
+
         $familia = Familia::find($this->familiaId);
 
         $familia->nombre = $this->nombre;
         $familia->descripcion = $this->descripcion;
+        
+        $familia->save();
+
+        Flux::modal('edit-familia')->close();
+        $this->dispatch('reloadFamilias');
     }
+
 }

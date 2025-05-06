@@ -55,7 +55,7 @@ header nav .links .link:hover {
 }
 
 .active {
-    color: #fcfcfc;
+    color: var(--background-color);
     /* background-color: var(--cuaternary-color); */
 }
 

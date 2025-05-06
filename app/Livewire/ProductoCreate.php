@@ -5,13 +5,26 @@ namespace App\Livewire;
 use App\Models\Producto;
 use Flux\Flux;
 use Livewire\Component;
+use App\Models\Familia;
+use App\Models\Proveedor;
+// use Livewire\WithFileUploads;
 
 class ProductoCreate extends Component
 {
+    // use WithFileUploads;
     public $codigo, $nombre, $descripcion, $precio, $stock, $rating, $id_familia, $id_proveedor, $img_url;
+    public $familias = [];
+    public $proveedores = [];
+
     public function render()
     {
         return view('livewire.producto-create');
+    }
+
+    public function mount()
+    {
+        $this->familias = Familia::all();
+        $this->proveedores = Proveedor::all();
     }
 
     public function submit()

@@ -4,11 +4,11 @@
 <x-layouts.appD title="Diaz Kremer - Inicio">
     <x-slider />
     <section class="quienSomos">
-        <h2 class="text-4xl">Quienes somos</h2>
-        <div class="">
-            <img src="https://www.arteregal.com/assets/img/quienes-somos.png" class="dark:invert" alt="Diaz kremer">
+        <h2 class="text-4xl text-black dark:text-black">Quienes somos</h2>
+        <div class="text-black dark:text-black">
+            <img src="https://www.arteregal.com/assets/img/quienes-somos.png" class="" alt="Diaz kremer">
         </div>
-        <div class="container mx-auto px-4 ">
+        <div class="container mx-auto px-4 text-black dark:text-black">
             <p>En Díaz Kremer, nos enorgullecemos de ser una empresa familiar con más de 60 años de trayectoria
                 arraigada en
                 Burgos. Refundada en el año 2005 con el compromiso de ofrecer soluciones integrales a nuestros clientes,

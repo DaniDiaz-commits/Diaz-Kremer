@@ -3,7 +3,7 @@
         <div class="space-y-6">
             <div>
                 <flux:heading size="lg">Crear familia</flux:heading>
-                <flux:subheading>Añade los detalles de la familia. </flux:subheading>
+                <flux:subheading>Añade los detalles de la familia</flux:subheading>
             </div>
 
             <flux:input wire:model='nombre' label="nombre" placeholder="El nombre de la familia" />

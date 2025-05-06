@@ -21,7 +21,7 @@
                 <flux:navlist.group :heading="__('Vistas')" class="grid">
                     <flux:navlist.item icon="folder" :href="route('proveedores')" :current="request()->routeIs('proveedores')" wire:navigate>{{ __('Proveedores') }}</flux:navlist.item>
                     {{-- <flux:navlist.item icon="home" :href="route('posts')" :current="request()->routeIs('posts')" wire:navigate>{{ __('Posts') }}</flux:navlist.item> --}}
-                    <flux:navlist.item icon="list-bullet" :href="route('adminFamilias')" :current="request()->routeIs('familias')" wire:navigate>{{ __('Familias') }}</flux:navlist.item>
+                    <flux:navlist.item icon="list-bullet" :href="route('proveedores')" :current="request()->routeIs('familias')" wire:navigate>{{ __('Familias') }}</flux:navlist.item>
                     <flux:navlist.item icon="document-duplicate" :href="route('productos')" :current="request()->routeIs('productos')" wire:navigate>{{ __('Productos') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
