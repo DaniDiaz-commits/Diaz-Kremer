@@ -3,7 +3,7 @@
         <div class="grid gap-3 md:grid-cols-3">
             <!-- Total Productos -->
             <div class="relative aspect-video rounded-xl border p-4 bg-white dark:bg-gray-900 shadow">
-                <h3 class="text-lg font-semibold mb-2 text-gray-700 dark:text-white text-center">Total de Productos</h3>
+                <h3 class="text-lg font-semibold mb-2 text-gray-700 dark:text-white text-center">Productos comerciables</h3>
                 <canvas id="totalProductosChart" class="w-full h-full"></canvas>
             </div>
 
@@ -44,18 +44,17 @@
     <script>
         const labelsFamilia = {!! json_encode($labelsFamilia) !!};
         const dataFamilia = {!! json_encode($totalesFamilia) !!};
-
+    
         document.addEventListener('DOMContentLoaded', () => {
-            // Total Productos
             new Chart(document.getElementById('totalProductosChart'), {
                 type: 'bar',
                 data: {
-                    labels: ['Total Productos'],
+                    labels: ['Productos'],
                     datasets: [{
                         label: 'Cantidad',
                         data: [{{ $totalProductos }}],
-                        backgroundColor: '#60a5fa',
-                        borderColor: '#3b82f6',
+                        backgroundColor: '#23518c',
+                        borderColor: '#1b2126',
                         borderWidth: 1
                     }]
                 },
@@ -69,7 +68,6 @@
                 }
             });
 
-            // Valor Inventario
             new Chart(document.getElementById('valorInventarioChart'), {
                 type: 'bar',
                 data: {
@@ -77,8 +75,8 @@
                     datasets: [{
                         label: '€',
                         data: [{{ $valorInventario }}],
-                        backgroundColor: '#4ade80',
-                        borderColor: '#16a34a',
+                        backgroundColor: '#5b7ba6',
+                        borderColor: '#1b2126',
                         borderWidth: 1
                     }]
                 },
@@ -91,33 +89,33 @@
                     }
                 }
             });
-
-
-            // Productos por Familia
+    
             if (labelsFamilia.length > 0 && dataFamilia.length > 0) {
-    new Chart(document.getElementById('familiaChart'), {
-        type: 'pie',
-        data: {
-            labels: labelsFamilia,
-            datasets: [{
-                data: dataFamilia,
-                backgroundColor: [
-                    '#22c55e', '#3b82f6', '#f43f5e', '#eab308',
-                    '#a855f7', '#0ea5e9', '#ef4444', '#10b981', '#facc15'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { position: 'bottom' }
+                new Chart(document.getElementById('familiaChart'), {
+                    type: 'bar',
+                    data: {
+                        labels: labelsFamilia,
+                        datasets: [{
+                            label: 'Productos por Familia',
+                            data: dataFamilia,
+                            backgroundColor: '#88a0bf',
+                            borderColor: '#1b2126',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            } else {
+                console.warn('No hay datos suficientes para graficar productos por familia.');
             }
-        }
-    });
-} else {
-    console.warn('No hay datos suficientes para graficar productos por familia.');
-}
         });
     </script>
+    
 </x-layouts.app>

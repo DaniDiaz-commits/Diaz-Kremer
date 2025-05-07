@@ -1,7 +1,7 @@
 <x-layouts.appD class="container mx-auto p-8 flex-grow">
     <h1 class="text-5xl font-bold text-center my-8 text-gray-800">Política de Cookies</h1>
 
-    <section class="container mx-auto space-y-8">
+    <section class="container mx-auto space-y-8 mb-4">
         <h2 class="text-3xl font-semibold text-gray-700">1. Información sobre el uso de cookies</h2>
 
         <div class="space-y-4">

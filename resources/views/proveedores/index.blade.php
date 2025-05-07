@@ -8,14 +8,14 @@
             @foreach ($proveedores as $item)
                 <a href="#{{ $item->nombre }}" class="media-element">
                     <img class="min-h-50 max-h-50 min-w-50 object-contain img"
-                        src="{{ asset('img/marcas-logos/' . $item->logo_url) }}" alt="">
+                        src="{{ $item->logo_url }}" alt="">
                 </a>
             @endforeach
             <!-- Duplicamos el contenido para la animación infinita -->
             @foreach ($proveedores as $item)
                 <a class="media-element">
                     <img class="min-h-50 max-h-50 min-w-50 object-contain img"
-                        src="{{ asset('img/marcas-logos/' . $item->logo_url) }}" alt="">
+                        src="{{ $item->logo_url }}" alt="{{ $item->nombre }}">
                 </a>
             @endforeach
         </div>
@@ -25,17 +25,18 @@
     <div class="container mx-auto px-6 py-10">
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
             @foreach ($proveedores as $item)
-                <div id="{{ $item->nombre }}"
-                     class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                <a href="{{ route('proveedores.show', $item->id) }}"
+                   class="block bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
                     <div class="flex flex-col items-center text-center p-6">
                         <img class="w-24 h-16 object-contain mb-4"
-                             src="{{ asset('img/marcas-logos/' . $item->logo_url) }}" alt="{{ $item->nombre }}">
+                             src="{{ $item->logo_url }}" alt="{{ $item->nombre }}">
                         <h2 class="text-base font-semibold text-gray-800">{{ $item->nombre }}</h2>
                     </div>
-                </div>
+                </a>
             @endforeach
         </div>
     </div>
+    
     
     
     

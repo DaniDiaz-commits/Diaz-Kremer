@@ -3,7 +3,7 @@
     <head>
         @include('partials.head')
     </head>
-    <body class="min-h-screen bg-white dark:bg-zinc-800">
+    <body class="min-h-screen bg-gray-100 dark:bg-zinc-800">
         <flux:sidebar sticky stashable class="border-r border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
             <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 
@@ -19,9 +19,10 @@
                     <flux:navlist.item icon="paper-airplane" :href="route('adminProductos')" :current="request()->routeIs('adminProductos')" wire:navigate>{{ __('Productos') }}</flux:navlist.item>
                 </flux:navlist.group>
                 <flux:navlist.group :heading="__('Vistas')" class="grid">
+                    <flux:navlist.item icon="home" :href="route('home')" :current="request()->routeIs('home')" wire:navigate>{{ __('Home') }}</flux:navlist.item>
                     <flux:navlist.item icon="folder" :href="route('proveedores')" :current="request()->routeIs('proveedores')" wire:navigate>{{ __('Proveedores') }}</flux:navlist.item>
                     {{-- <flux:navlist.item icon="home" :href="route('posts')" :current="request()->routeIs('posts')" wire:navigate>{{ __('Posts') }}</flux:navlist.item> --}}
-                    <flux:navlist.item icon="list-bullet" :href="route('proveedores')" :current="request()->routeIs('familias')" wire:navigate>{{ __('Familias') }}</flux:navlist.item>
+                    {{-- <flux:navlist.item icon="list-bullet" :href="route('proveedores')" :current="request()->routeIs('familias')" wire:navigate>{{ __('Familias') }}</flux:navlist.item> --}}
                     <flux:navlist.item icon="document-duplicate" :href="route('productos')" :current="request()->routeIs('productos')" wire:navigate>{{ __('Productos') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>

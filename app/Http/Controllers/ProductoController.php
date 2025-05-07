@@ -145,7 +145,7 @@ class ProductoController extends Controller
         $query->where('rating', '=', $request->rating);
     }
 
-    $productos = $query->paginate(12);
+    $productos = $query->paginate(15);
     $familias = Familia::all();
 
     return view('productos.index', compact('productos', 'familias'));

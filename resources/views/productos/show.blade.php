@@ -5,7 +5,7 @@
         <!-- Breadcrumb Section (near the card) -->
         <x-breadcrumb class="mb-4">
             <x-slot name="home">Home</x-slot>
-            <x-slot name="productos">Productos</x-slot>
+            <x-slot name="datos">Productos</x-slot>
             <x-slot name="current" >{{ $producto->nombre }}</x-slot>
         </x-breadcrumb>
         <div class="w-full max-w-md border border-gray-200 bg-tertiary rounded-xl shadow-lg transition-shadow duration-300 dark:bg-gray-800 dark:border-gray-700 overflow-hidden">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use App\Models\Familia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -22,7 +23,7 @@ public function index()
             'total' => $item->total,
         ];
     });
-    $valorInventario = Producto::sum('precio');
+    $valorInventario = Producto::sum(DB::raw('precio * stock'));
 
     $productosStockBajo = Producto::where('stock', '<', 10)->count();
     $productosRecientes = Producto::latest()->take(5)->get();
