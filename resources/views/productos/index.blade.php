@@ -109,7 +109,7 @@
                             <!-- Precio -->
                             <section class="mt-auto w-full flex justify-between items-center">
                                 <div class="price text-green-600 font-bold">
-                                    <del class="text-gray-500">${{ $producto->newPrecio }}</del>
+                                    <del class="text-gray-900">${{ $producto->newPrecio }}</del>
                                     {{ $producto->precio }}
                                 </div>
 

@@ -17,6 +17,7 @@
                     {{-- <flux:navlist.item icon="home" :href="route('posts')" :current="request()->routeIs('posts')" wire:navigate>{{ __('Posts') }}</flux:navlist.item> --}}
                     <flux:navlist.item icon="paper-airplane" :href="route('adminFamilias')" :current="request()->routeIs('adminFamilias')" wire:navigate>{{ __('Familias') }}</flux:navlist.item>
                     <flux:navlist.item icon="paper-airplane" :href="route('adminProductos')" :current="request()->routeIs('adminProductos')" wire:navigate>{{ __('Productos') }}</flux:navlist.item>
+                    <flux:navlist.item icon="paper-airplane" :href="route('adminProveedores')" :current="request()->routeIs('adminProveedores')" wire:navigate>{{ __('Proveedores') }}</flux:navlist.item>
                 </flux:navlist.group>
                 <flux:navlist.group :heading="__('Vistas')" class="grid">
                     <flux:navlist.item icon="home" :href="route('home')" :current="request()->routeIs('home')" wire:navigate>{{ __('Home') }}</flux:navlist.item>

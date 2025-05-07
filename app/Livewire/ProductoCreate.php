@@ -30,7 +30,7 @@ class ProductoCreate extends Component
     public function submit()
     {
         $this->validate([
-            'codigo' => 'required|string|unique:productos,codigo',
+            'codigo' => 'required|string|unique:productos,codigo|regex:/^#\d{6}$/',
             'nombre' => 'required|string|unique:productos,nombre',
             'descripcion' => 'required|string|max:250|unique:productos,descripcion',
             'precio' => 'required|numeric|min:0',

@@ -19,6 +19,7 @@ Route::get('admin.dashboard', [DashboardController::class, 'index'])->middleware
 Route::view('admin.familias', 'AdminFamilias')->middleware(['auth', 'verified'])->name('adminFamilias');
 
 Route::view('admin.productos', 'AdminProductos')->middleware(['auth', 'verified'])->name('adminProductos');
+Route::view('admin.proveedores', 'AdminProveedores')->middleware(['auth', 'verified'])->name('adminProveedores');
 
 Route::get('/productos',  [ProductoController::class, 'index'])->name('productos');
 Route::get('/productos/filtrar', [ProductoController::class, 'order'])->name('productos.order');
