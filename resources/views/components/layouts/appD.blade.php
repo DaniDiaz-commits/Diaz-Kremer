@@ -11,7 +11,7 @@
         <!-- Scripts -->
         <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
     </head>
-    <body class="font-sans antialiased bg-gray-100 min-h-screen flex flex-col">
+    <body class="antialiased bg-gray-100 min-h-screen flex flex-col">
 
             <!-- Page Heading -->
             <x-header />

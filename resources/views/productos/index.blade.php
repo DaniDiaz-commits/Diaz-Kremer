@@ -71,7 +71,11 @@
         <!-- Productos -->
         <div class="w-full md:w-3/4 lg:w-4/5 flex flex-wrap justify-center mt-5">
             <!-- Título -->
-            <h1 class="text-6xl text-center mb-4 w-full">Productos Disponibles</h1>
+            <div class="w-full text-center my-5">
+                <h1 class="text-5xl font-bold mb-2">Explora Nuestros Productos</h1>
+                <p class="text-lg text-gray-600">Encuentra la mejor calidad y variedad</p>
+            </div>
+            
 
             <!-- Productos -->
             @if ($productos->isEmpty())
@@ -79,9 +83,8 @@
             @else
                 @foreach ($productos as $producto)
                     <a href="/producto/{{ $producto->id }}"
-                        class="m-2 p-5 cursor-pointer max-w-xs w-full sm:w-64 flex flex-col bg-gray-200 h-[22rem] shadow-lg">
-                        <img src="{{ $producto->img_url }}" alt="{{ $producto->nombre }}"
-                            class="w-full h-36 object-cover mb-1" />
+                        class="m-2 p-5 cursor-pointer max-w-xs w-full sm:w-64 flex flex-col bg-gray-300 h-[22rem] shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gray-200">
+                        <img src="{{ $producto->img_url }}" alt="{{ $producto->nombre }}" class="w-full h-36 mb-1" />
                         <section class="flex flex-col min-h-36 relative">
                             <h3 class="mb-1 mt-2 font-semibold text-gray-700 text-sm truncate"
                                 title="{{ $producto->nombre }}">
