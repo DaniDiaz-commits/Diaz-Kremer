@@ -22,11 +22,13 @@ class ComentarioSeeder extends Seeder
                 for ($i = 0; $i < 5; $i++) {
                     Comentario::create([
                         'id_producto' => $producto->id,    
-                        'id_user' => $usuarios->random()->id,
-                        'contenido' => 'Este es un comentario de prueba sobre el producto. ' . ($i + 1),
+                        'id_user' => 1,
+                        'contenido' => 'Este producto es bueno. ' . ($i + 1),
                     ]);
                 }
             }
         }
+
+        
     }
 }

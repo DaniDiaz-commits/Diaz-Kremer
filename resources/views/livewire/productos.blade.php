@@ -34,7 +34,7 @@
 
     <div class="overflow-x-auto mt-4">
         <table class="w-full text-sm text-left rtl:text-right #text-gray-500 #dark:text-gray-400">
-            <thead class="text-xs uppercase bg-gray-50 dark:bg-gray-700 #dark:text-gray-400">
+            <thead class="text-xs uppercase bg-gray-50 dark:bg-[#1b2126] #dark:text-gray-400">
                 <tr>
                     {{-- <th scope="col" class="px-6 py-3">ID</th> --}}
                     <th scope="col" class="px-4 py-2 cursor-pointer" wire:click="sortBy('id')">
@@ -93,7 +93,7 @@
             </thead>
             <tbody>
                 @foreach ($productos as $producto)
-                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                    <tr class="odd:bg-white odd:dark:bg-[#5b7ba6] even:dark:bg-[#88a0bf] border-b dark:border-gray-700">
                         <td class="px-6 py-2 font-medium text-gray-600 dark:text-gray-300">{{ $producto->id }}</td>
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300">{{ $producto->codigo }}</td>
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300">{{ $producto->nombre }}</td>
@@ -103,7 +103,7 @@
                                 {{ $producto->descripcion }}
                             </div>
                         </td>
-                        <td class="px-4 py-2 text-center text-green-600 dark:text-green-400 font-semibold">
+                        <td class="px-4 py-2 text-center text-green-800 dark:text-green-800 font-semibold">
                             {{ number_format($producto->precio, 2) }} €
                         </td>
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300 text-center">{{ $producto->stock }}</td>

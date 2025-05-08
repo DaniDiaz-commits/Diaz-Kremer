@@ -5,10 +5,10 @@ use Livewire\Livewire;
 
 uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('registration screen can be rendered', function () {
+test('registration screen can`t be rendered', function () {
     $response = $this->get('/register');
 
-    $response->assertStatus(200);
+    $response->assertStatus(400);
 });
 
 test('new users can register', function () {

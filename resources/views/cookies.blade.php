@@ -30,7 +30,7 @@
         </div>
 
         <div>
-            <h4 class="text-xl font-semibold text-gray-700">Cookies utilizadas en www.arteregal.com:</h4>
+            <h4 class="text-xl font-semibold text-gray-700">Cookies utilizadas en diazkremer.com:</h4>
             <ul class="list-inside list-disc pl-5 space-y-4 text-gray-500">
                 <li><strong class="text-gray-800">Cookies estrictamente necesarias:</strong>
                     <ul class="list-inside list-disc pl-5">

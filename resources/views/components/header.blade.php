@@ -1,16 +1,30 @@
 {{-- <header class="sticky top-0"> --}}
 <header>
-    <nav style="background-color: var(--primary-color)" class="border-gray-200 dark:border-gray-700">
+    <nav class="border-gray-200 dark:bg-white">
         <div class=" flex flex-wrap items-center justify-between  p-4">
             <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="{{ asset('img/diazkremer-logo.svg') }}" class="h-8 bg-white" alt="Diazkremer Logo" />
-                <span class="self-center pl-2 text-2xl whitespace-nowrap text-white">Diaz Kremer</span>
+                <span class="self-center pl-2 text-2xl whitespace-nowrap text-black">Diaz Kremer</span>
             </a>
             <div class="links hidden md:flex items-center space-x-2 gap-1">
                 <a href="/" class="{{ request()->is('/') ? 'active' : 'link' }}">Inicio</a>
                 <a href="/productos" class="{{ request()->is('productos') ? 'active' : 'link' }}">Productos</a>
                 <a href="/proveedores" class="{{ request()->is('proveedores') ? 'active' : 'link' }}">Marcas</a>
                 <a href="/#contacto" class="{{ request()->is('#contacto') ? 'active' : 'link' }}">Contacto</a>
+                @auth
+                    <a href="{{ route('dashboard') }}" class="btn btn-primary text-black">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                            <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
+                        </svg>                       
+                    </a>
+                @endauth
+                @guest
+                    <a href="{{ route('login') }}" class="btn btn-primary text-black">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                        </svg>                      
+                    </a>
+                @endguest
             </div>
             
 

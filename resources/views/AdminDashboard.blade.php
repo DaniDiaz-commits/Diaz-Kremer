@@ -1,34 +1,49 @@
 <x-layouts.app :title="__('Diaz Kremer - Dashboard')">
     <div class="flex h-full w-full flex-1 flex-col gap-6 rounded-xl">
-        <div class="grid gap-3 md:grid-cols-3">
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
             <!-- Total Productos -->
-            <div class="relative aspect-video rounded-xl border p-4 bg-white dark:bg-gray-900 shadow">
-                <h3 class="text-lg font-semibold mb-2 text-gray-700 dark:text-white text-center">Productos comerciables</h3>
+            <div
+                class="relative rounded-2xl border p-6 bg-white dark:bg-[#1b2126] shadow-md w-full min-h-[280px] overflow-hidden">
+                <h3 class="text-lg font-semibold mb-2 text-gray-700 dark:text-white text-center">Productos comerciables
+                </h3>
                 <canvas id="totalProductosChart" class="w-full h-full"></canvas>
             </div>
 
             <!-- Valor Inventario -->
-            <div class="relative aspect-video rounded-xl border p-4 bg-white dark:bg-gray-900 shadow">
-                <h3 class="text-lg font-semibold mb-2 text-gray-700 dark:text-white text-center">Valor Inventario (€)</h3>
+            <div
+                class="relative rounded-2xl border p-6 bg-white dark:bg-[#1b2126] shadow-md w-full min-h-[280px] overflow-hidden">
+                <h3 class="text-lg font-semibold mb-2 text-gray-700 dark:text-white text-center">Valor del inventario (€)
+                </h3>
                 <canvas id="valorInventarioChart" class="w-full h-full"></canvas>
             </div>
 
             <!-- Productos por Familia -->
-            <div class="relative aspect-video rounded-xl border p-4 bg-white dark:bg-gray-900 shadow">
-                <h3 class="text-lg font-semibold mb-2 text-gray-700 dark:text-white text-center">Productos por Familia</h3>
-                <canvas id="familiaChart" class="w-full h-full"></canvas>
+            <div
+                class="relative rounded-2xl border p-6 bg-white dark:bg-[#1b2126] shadow-md w-full min-h-[280px] overflow-hidden">
+                <h3 class="text-lg font-semibold mb-2 text-gray-700 dark:text-white text-center">Top 5 Familias con más
+                    productos </h3>
+                <canvas id="topfamiliasChart" class="w-full h-full"></canvas>
             </div>
+
+            <!-- Gráfico de top 5 Familias con más productos -->
+            <div
+                class="relative rounded-2xl border p-6 bg-white dark:bg-[#1b2126] shadow-md w-full min-h-[280px] overflow-hidden block xl:hidden">
+                <h3 class="text-lg font-semibold mb-2 text-gray-700 dark:text-white text-center">Proveedores</h3>
+                <canvas id="proveedoresChart" class="w-full h-full"></canvas>
+            </div>
+
         </div>
 
         <!-- Productos Recientes -->
-        <div class="relative overflow-hidden rounded-xl border p-4 bg-white dark:bg-gray-900 shadow">
+        <div class="relative overflow-hidden rounded-xl border p-4 bg-white dark:bg-[#1b2126] shadow">
             <h3 class="text-lg font-semibold mb-4 text-gray-700 dark:text-white">Productos Recientes</h3>
             <ul class="divide-y divide-gray-200 dark:divide-gray-700">
                 @foreach ($productosRecientes as $producto)
                     <li class="py-3">
                         <p class="text-base font-medium text-gray-900 dark:text-white">{{ $producto->nombre }}</p>
                         <p class="text-sm text-gray-600 dark:text-gray-300">Precio:
-                            €{{ number_format($producto->precio, 2) }}</p>
+                            <span> {{ number_format($producto->precio, 2) }} €</span>
+                        </p>
                     </li>
                 @endforeach
             </ul>
@@ -36,26 +51,33 @@
     </div>
 
     <!-- Chart.js -->
-    @php
-        $labelsFamilia = $productosPorFamilia->pluck('familia')->toArray();
-        $totalesFamilia = $productosPorFamilia->pluck('total')->toArray();
-    @endphp
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="https://unpkg.com/cally"></script>
     <script>
-        const labelsFamilia = {!! json_encode($labelsFamilia) !!};
-        const dataFamilia = {!! json_encode($totalesFamilia) !!};
-    
-        document.addEventListener('DOMContentLoaded', () => {
+        if (!localStorage.getItem("pageReloaded")) {
+          localStorage.setItem("pageReloaded", "true");
+          location.reload();
+        } else {
+          localStorage.removeItem("pageReloaded");
+        }
+      </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const totalProductos = @json($totalProductos);
+            const valorInventario = @json($valorInventario);
+            const topFamilias = @json($topFamilias);
+            const proveedores = @json($proveedores);
+
+            // Total Productos
             new Chart(document.getElementById('totalProductosChart'), {
                 type: 'bar',
                 data: {
                     labels: ['Productos'],
                     datasets: [{
-                        label: 'Cantidad',
-                        data: [{{ $totalProductos }}],
-                        backgroundColor: '#23518c',
-                        borderColor: '#1b2126',
-                        borderWidth: 1
+                        label: 'Total Productos',
+                        data: [totalProductos],
+                        backgroundColor: ['#88a0bf']
                     }]
                 },
                 options: {
@@ -68,16 +90,15 @@
                 }
             });
 
+            // Valor Inventario
             new Chart(document.getElementById('valorInventarioChart'), {
                 type: 'bar',
                 data: {
-                    labels: ['Valor Total'],
+                    labels: ['Inventario'],
                     datasets: [{
-                        label: '€',
-                        data: [{{ $valorInventario }}],
-                        backgroundColor: '#5b7ba6',
-                        borderColor: '#1b2126',
-                        borderWidth: 1
+                        label: 'Valor Total (€)',
+                        data: [valorInventario],
+                        backgroundColor: ['#88a0bf']
                     }]
                 },
                 options: {
@@ -89,33 +110,74 @@
                     }
                 }
             });
-    
-            if (labelsFamilia.length > 0 && dataFamilia.length > 0) {
-                new Chart(document.getElementById('familiaChart'), {
-                    type: 'bar',
-                    data: {
-                        labels: labelsFamilia,
-                        datasets: [{
-                            label: 'Productos por Familia',
-                            data: dataFamilia,
-                            backgroundColor: '#88a0bf',
-                            borderColor: '#1b2126',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
+
+            // Top Familias
+            const topFamiliasNombres = topFamilias.map(f => f.familia);
+            const familiasDistribucion = topFamilias.map(f => f.total);
+            const coloresFamilias = topFamiliasNombres.map(() =>
+                `hsl(${Math.random() * 360}, 70%, 60%)`);
+
+            new Chart(document.getElementById('topfamiliasChart'), {
+                type: 'pie',
+                data: {
+                    labels: topFamiliasNombres,
+                    datasets: [{
+                        label: 'Productos',
+                        data: familiasDistribucion,
+                        backgroundColor: coloresFamilias
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom'
                         }
                     }
-                });
-            } else {
-                console.warn('No hay datos suficientes para graficar productos por familia.');
+                }
+            });
+
+            // Proveedores (solo en móvil)
+            let proveedorChart = null;
+
+            function renderProveedorChart() {
+                if (window.innerWidth < 1280 && !proveedorChart) {
+                    const proveedorNombres = proveedores.map(p => p.nombre);
+                    const proveedorDistribucion = Array(proveedorNombres.length).fill(1);
+                    const colores = proveedorNombres.map(() => `hsl(${Math.random() * 360}, 70%, 60%)`);
+
+                    const ctx = document.getElementById('proveedoresChart');
+                    if (!ctx) return;
+
+                    proveedorChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: proveedorNombres,
+                            datasets: [{
+                                // label: 'Distribución de Proveedores',
+                                data: proveedorDistribucion,
+                                backgroundColor: colores
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: true,
+                                    position: 'bottom'
+                                }
+                            }
+                        }
+                    });
+                }
             }
+
+            renderProveedorChart();
+            window.addEventListener('resize', renderProveedorChart);
         });
     </script>
-    
+
+
+
 </x-layouts.app>

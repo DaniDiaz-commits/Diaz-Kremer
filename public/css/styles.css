@@ -8,12 +8,18 @@
     --font-family: "Ebrima", "Oswald", serif;
 }
 
-.bg-primary-color {
+/* .bg-primary-color {
     background: var(--primary-color);
 }
-.bg-second-color {
+.bg-secondary-color {
     background: var(--secondary-color);
 }
+.bg-terciary-color {
+    background: var(--terciary-color);
+}
+.bg-cuaternary-color {
+    background: var(--cuaternary-color);
+} */
 
 * {
     font-family: var(--font-family);
@@ -49,13 +55,23 @@ header nav .links a {
     /* text-decoration: none; */
 }
 header nav .links .link:hover {
-    /* color: black; */
-    /* border: 2px solid var(--cuaternary-color); */
-    background-color: var(--terciary-color);
+    font-weight: bold;
+    border-bottom: 2px solid var(--cuaternary-color);
+    /* background-color: var(--terciary-color); */
+}
+
+.link {
+    /* border: 1px solid white; */
+    font-weight: bold;
+    color: black
 }
 
 .active {
-    color: var(--background-color);
+    font-weight: bold;
+    border-bottom: 2px solid var(--primary-color);
+    
+
+    color: var(--primary-color);
     /* background-color: var(--cuaternary-color); */
 }
 
@@ -91,7 +107,7 @@ header nav .links .link:hover {
 .footer {
     width: 100%;
     color: white;
-    background: var(--primary-color);
+    /* background: var(--primary-color); */
     box-shadow: rgb(38, 57, 77) 10px 0px 30px 10px;
 
     /* position: sticky;
@@ -114,7 +130,7 @@ select {
     margin-bottom: 60px;
     /* margin-bottom: 20px; */
     padding: 30px;
-    background: #f9f9f9;
+    /* background: #f9f9f9; */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -191,7 +207,7 @@ select {
 }
 
 .container-form .btn-enviar:hover {
-    background-color: var(--secondary-color);
-    color: black;
+    background-color: var(--cuaternary-color);
+    color: white;
     transform: scale(1.05);
 }

@@ -82,7 +82,10 @@ select:focus[data-flux-control] {
 } */
 
 :root {
-    
+    --primary-color: #23518c;
+    --secondary-color: #5b7ba6;
+    --terciary-color: #88a0bf;
+    --cuaternary-color: #1b2126;
 }
 
 .bg-primary {
@@ -95,12 +98,12 @@ select:focus[data-flux-control] {
     color: white;
 }
 
-.bg-tertiary {
+.bg-terciary {
     background-color: var(--terciary-color);
     color: black;
 }
 
-.bg-quaternary {
+.bg-cuaternary {
     background-color: var(--cuaternary-color);
     color: white;
 }

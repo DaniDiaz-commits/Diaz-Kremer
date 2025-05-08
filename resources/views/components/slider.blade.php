@@ -1,13 +1,13 @@
 <div class="slider">
     <div class="slides">
-        <div class="slide active">
+        {{-- <div class="slide active">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiPEmWui2OJPL4_VERa8FNOJ5Jr4DvDLzbtQ&s" alt="img #3">
             <a href="https://www.ejemplo1.com" class="slide-btn">Ver más</a>
-        </div>
-        <div class="slide">
+        </div> --}}
+        {{-- <div class="slide">
             <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/business-banner-template-design-f4b281ca556e3d500e78fc6260273284_screen.jpg?ts=1561497794" alt="img #4">
             <a href="https://www.ejemplo2.com" class="slide-btn">Explorar</a>
-        </div>
+        </div> --}}
         <div class="slide">
             <img src="{{ asset('img/banner/diazKremer-outside.png')}}" alt="img #4">
             <a href="/proveedores" class="slide-btn">Marcas</a>

@@ -34,7 +34,7 @@
 
     <div class="overflow-x-auto mt-4">
         <table class="w-full text-sm text-left rtl:text-right #text-gray-500 #dark:text-gray-400">
-            <thead class="text-xs uppercase bg-gray-50 dark:bg-gray-700 #dark:text-gray-400">
+            <thead class="text-xs uppercase bg-gray-50 dark:bg-[#1b2126] #dark:text-gray-400">
                 <tr>
                     {{-- <th scope="col" class="px-6 py-3">ID</th> --}}
                     <th scope="col" class="px-4 py-2 cursor-pointer">ID</th>
@@ -51,7 +51,7 @@
             </thead>
             <tbody>
                 @foreach ($proveedores as $proveedor)
-                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                    <tr class="odd:bg-white odd:dark:bg-[#5b7ba6] even:dark:bg-[#88a0bf] border-b dark:border-gray-700">
                         <td class="px-6 py-2 font-medium text-gray-600 dark:text-gray-300">{{ $proveedor->id }}</td>
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300">{{ $proveedor->nombre }}</td>
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300">
@@ -63,7 +63,7 @@
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300 text-center">{{ $proveedor->email }}</td>
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300 text-center">{{ $proveedor->telefono }}</td>
                         <td class="px-6 py-2 text-gray-600 dark:text-gray-300 text-center">{{ $proveedor->direccion }}</td>
-                        <td class="px-6 py-2 text-gray-600 dark:text-gray-300">{{ $proveedor->logo_url }}</td>
+                        <td class="px-6 py-2 text-gray-600 dark:text-gray-300 text-center">{{ $proveedor->logo_url }}</td>
                         <td class="px-6 py-2 flex justify-center gap-2">
                             <flux:button variant="primary" size="sm" wire:click="edit({{ $proveedor->id }})">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">

@@ -32,7 +32,7 @@
     <div class="overflow-x-auto">
         <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md">
             <table class="w-full text-sm text-left text-gray-700 dark:text-gray-300">
-                <thead class="text-xs text-gray-500 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
+                <thead class="text-xs text-gray-500 uppercase bg-gray-50 dark:bg-[#1b2126] dark:text-gray-400">
                     <tr>
                         <th class="px-4 py-3 cursor-pointer" wire:click="sortBy('id')">
                             ID
@@ -52,7 +52,7 @@
                 </thead>
                 <tbody>
                     @foreach ($familias as $familia)
-                        <tr class="border-t dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                        <tr class="odd:bg-white odd:dark:bg-[#5b7ba6] even:dark:bg-[#88a0bf] border-b dark:border-gray-700">
                             <td class="px-4 py-2">{{ $familia->id }}</td>
                             <td class="px-4 py-2">{{ $familia->nombre }}</td>
                             <td class="px-4 py-2">

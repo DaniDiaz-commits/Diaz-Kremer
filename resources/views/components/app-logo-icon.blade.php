@@ -7,7 +7,7 @@
     />
 </svg> --}}
 
-<div class="flex aspect-square size-8 items-center justify-center rounded-md overflow-hidden bg-white">
+<div class="flex aspect-square size-8 items-center justify-center rounded-md overflow-hidden">
     <svg id="Capa_2" data-name="Capa 2" viewBox="0 0 304.32 393.37" {{ $attributes }} >
         <defs>
             <style>

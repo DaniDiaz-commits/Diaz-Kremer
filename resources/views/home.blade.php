@@ -3,7 +3,7 @@
 {{-- <x-header /> --}}
 <x-layouts.appD title="Diaz Kremer - Inicio">
     <x-slider />
-    <section class="quienSomos">
+    <section class="quienSomos bg-tertiary">
         <h2 class="text-4xl text-black dark:text-black">Quienes somos</h2>
         <div class="text-black dark:text-black">
             <img src="https://www.arteregal.com/assets/img/quienes-somos.png" class="" alt="Diaz kremer">
@@ -81,7 +81,7 @@
                 </div>
             </section> --}}
 
-    <div id="contacto" class="container-form">
+    <div id="contacto" class="container-form bg-secondary">
         <div class="info-form">
             <h2 class=" dark:text-black">Contáctanos</h2>
             <p class=" dark:text-black">¿Tienes alguna pregunta o necesitas más información?<br> De lunes a viernes 8:15 a 13:45 - 16:00 a 19:30.</p>
