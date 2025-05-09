@@ -81,7 +81,7 @@
                 </div>
             </section> --}}
 
-    <div id="contacto" class="container-form bg-secondary">
+    <div id="contacto" class="container-form bg-gray-100 dark:bg-[#5b7ba6] ">
         <div class="info-form">
             <h2 class=" dark:text-black">Contáctanos</h2>
             <p class=" dark:text-black">¿Tienes alguna pregunta o necesitas más información?<br> De lunes a viernes 8:15 a 13:45 - 16:00 a 19:30.</p>

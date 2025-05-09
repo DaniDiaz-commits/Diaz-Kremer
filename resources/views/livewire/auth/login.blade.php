@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-6">
-    <x-auth-header :title="__('Logueate en tu cuenta')" :description="__('Entra el email y la contraseña para logeate')" />
+    <x-auth-header :title="__('Inicia sesión en tu cuenta')" :description="__('Entra el email y la contraseña para iniciar sesión')" />
 
     <!-- Session Status -->
     <x-auth-session-status class="text-center" :status="session('status')" />

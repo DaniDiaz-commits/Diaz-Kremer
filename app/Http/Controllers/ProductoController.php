@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Familia;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductoController extends Controller
 {
@@ -30,7 +31,8 @@ class ProductoController extends Controller
     public function show($id)
     {
         $producto = Producto::with('comentarios.usuario')->findOrFail($id);
-        return view('productos.show', compact('producto'));
+        $usuarioId = Auth::id();
+        return view('productos.show', compact('producto', 'usuarioId'));
     }
 
     public function buscar(Request $request)
@@ -105,50 +107,57 @@ class ProductoController extends Controller
     }
 
     public function order(Request $request)
-{
-    $query = Producto::query();
+    {
+        $query = Producto::query();
 
-    if ($request->filled('familia')) {
-        $query->where('id_familia', $request->familia);
-    }
-
-    if ($request->filled('orden')) {
-        switch ($request->orden) {
-            case 'az':
-                $query->orderBy('nombre', 'asc');
-                break;
-            case 'za':
-                $query->orderBy('nombre', 'desc');
-                break;
-            case 'relevancia':
-                $query->orderBy('relevancia', 'desc');
-                break;
-            case 'mas-vendidos':
-                $query->orderBy('ventas', 'desc');
-                break;
-            case 'mejor-valorados':
-                $query->orderBy('rating', 'desc');
-                break;
+        if ($request->filled('familia')) {
+            $query->where('id_familia', $request->familia);
         }
-    }
 
-    if ($request->filled('precio')) {
-        switch ($request->precio) {
-            case '1': $query->whereBetween('precio', [0, 30]); break;
-            case '2': $query->whereBetween('precio', [30, 60]); break;
-            case '3': $query->whereBetween('precio', [70, 100]); break;
-            case '4': $query->where('precio', '>', 100); break;
+        if ($request->filled('orden')) {
+            switch ($request->orden) {
+                case 'az':
+                    $query->orderBy('nombre', 'asc');
+                    break;
+                case 'za':
+                    $query->orderBy('nombre', 'desc');
+                    break;
+                case 'relevancia':
+                    $query->orderBy('relevancia', 'desc');
+                    break;
+                case 'mas-vendidos':
+                    $query->orderBy('ventas', 'desc');
+                    break;
+                case 'mejor-valorados':
+                    $query->orderBy('rating', 'desc');
+                    break;
+            }
         }
+
+        if ($request->filled('precio')) {
+            switch ($request->precio) {
+                case '1':
+                    $query->whereBetween('precio', [0, 30]);
+                    break;
+                case '2':
+                    $query->whereBetween('precio', [30, 60]);
+                    break;
+                case '3':
+                    $query->whereBetween('precio', [70, 100]);
+                    break;
+                case '4':
+                    $query->where('precio', '>', 100);
+                    break;
+            }
+        }
+
+        if ($request->filled('rating')) {
+            $query->where('rating', '=', $request->rating);
+        }
+
+        $productos = $query->paginate(15);
+        $familias = Familia::all();
+
+        return view('productos.index', compact('productos', 'familias'));
     }
-
-    if ($request->filled('rating')) {
-        $query->where('rating', '=', $request->rating);
-    }
-
-    $productos = $query->paginate(15);
-    $familias = Familia::all();
-
-    return view('productos.index', compact('productos', 'familias'));
-}
-
 }

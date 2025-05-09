@@ -77,3 +77,22 @@
     background-color: var(--primary-color);
     opacity: 0.9; 
 }
+
+@media screen and (max-width: 768px) {
+    .slide {
+        min-height: auto;
+        max-height: none;
+        height: auto;
+    }
+
+    .slide img {
+        min-height: auto;
+        max-height: none;
+        height: auto;
+    }
+
+    .slide-btn {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+}

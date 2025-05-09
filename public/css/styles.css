@@ -69,10 +69,7 @@ header nav .links .link:hover {
 .active {
     font-weight: bold;
     border-bottom: 2px solid var(--primary-color);
-    
-
-    color: var(--primary-color);
-    /* background-color: var(--cuaternary-color); */
+    color: var(--secondary-color);
 }
 
 .title {

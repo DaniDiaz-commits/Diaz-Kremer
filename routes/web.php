@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProveedorController;
@@ -30,6 +31,9 @@ Route::get('/proveedores', [ProveedorController::class, 'index'])->name('proveed
 Route::get('/proveedor/{id}', [ProveedorController::class, 'show'])->name('proveedores.show');
 
 Route::get('/cookies', function () { return view('cookies'); });
+
+Route::post('/comentarios', [ComentarioController::class, 'store'])->middleware('auth')->name('comentarios.store');
+Route::delete('/comentarios/{comentario}', [ComentarioController::class, 'destroy'])->name('comentarios.destroy');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
