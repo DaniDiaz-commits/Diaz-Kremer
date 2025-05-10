@@ -1,6 +1,12 @@
 <link rel="stylesheet" href="{{ asset('css/slider.css') }}">
 {{-- <link rel="stylesheet" href="{{ asset('css/styles.css') }}"> --}}
 {{-- <x-header /> --}}
+<!-- Agregar CSS de Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+<!-- Agregar JS de Leaflet -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
 <x-layouts.appD title="Diaz Kremer - Inicio">
     <x-slider />
     <section class="quienSomos bg-tertiary">
@@ -84,7 +90,8 @@
     <div id="contacto" class="container-form bg-gray-100 dark:bg-[#5b7ba6] ">
         <div class="info-form">
             <h2 class=" dark:text-black">Contáctanos</h2>
-            <p class=" dark:text-black">¿Tienes alguna pregunta o necesitas más información?<br> De lunes a viernes 8:15 a 13:45 - 16:00 a 19:30.</p>
+            <p class=" dark:text-black">¿Tienes alguna pregunta o necesitas más información?<br> De lunes a viernes 8:15
+                a 13:45 - 16:00 a 19:30.</p>
             <a href="https://wa.me/+34683580828"><i class="fa fa-phone"></i> +34 123-456-789</a> <!-- 947483961 -->
             <a href=""><i class="fa fa-envelope"></i> Email: admon.kremer@grupocrisol.com</a>
             <a href=""><i class="fa fa-map-marked"></i>Burgos, España</a>
@@ -100,9 +107,29 @@
             <input type="submit" name="enviar" class="btn-enviar">
         </form>
     </div>
+   <section id="localizacion" class="pb-15 bg-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl text-black dark:text-black">Nuestra Localización</h2>
+            <p class="text-lg text-black dark:text-black mt-4">Encuentra nuestra ubicación en Burgos, España, en el mapa a continuación.</p>
+
+            <!-- Contenedor del mapa -->
+            <div id="map" class="rounded-lg mt-7" style="height: 500px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);"></div>
+
+        </div>
+    </section>
 
     {{-- <script type="text/javascript" src="{{ asset('js/script.js') }}"></script> --}}
-    <script></script>
-    
+    <script>
+    var map = L.map('map').setView([42.373426991593206, -3.7109438098017513], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([42.373426991593206, -3.7109438098017513]).addTo(map).bindPopup('¡Aquí está Diaz Kremer!').openPopup();
+</script>
+
+
+
 </x-layouts.appD>
 <script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>
