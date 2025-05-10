@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
             <!-- Total Productos -->
             <div
-                class="relative rounded-2xl border p-6 bg-[#88a0bf] dark:bg-[#f2f2f2] shadow-md w-full min-h-[280px] max-h-[300px] overflow-hidden">
+                class="relative rounded-2xl border p-6 bg-[#88a0bf] dark:bg-gray-300 shadow-md w-full min-h-[280px] max-h-[300px] overflow-hidden">
                 <h3 class="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-800 text-center">Productos
                     comerciables
                 </h3>
@@ -12,7 +12,7 @@
 
             <!-- Valor Inventario -->
             <div
-                class="relative rounded-2xl border p-6 bg-[#88a0bf] dark:bg-[#f2f2f2] shadow-md w-full min-h-[280px] max-h-[300px] overflow-hidden">
+                class="relative rounded-2xl border p-6 bg-[#88a0bf] dark:bg-gray-300 shadow-md w-full min-h-[280px] max-h-[300px] overflow-hidden">
                 <h3 class="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-900 text-center">Valor del inventario
                     (€)
                 </h3>
@@ -21,16 +21,14 @@
 
             <!-- Productos por Familia -->
             <div
-                class="relative rounded-2xl border p-6 bg-[#88a0bf] dark:bg-[#f2f2f2] shadow-md w-full min-h-[280px] overflow-hidden">
-                <h3 class="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-800 text-center">Top 5 Familias con
-                    más
-                    productos </h3>
+                class="relative rounded-2xl border p-6 bg-[#88a0bf] dark:bg-gray-300 shadow-md w-full min-h-[280px] overflow-hidden">
+                <h3 class="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-800 text-center">Top 5 Familias con más productos </h3>
                 <canvas id="topfamiliasChart" class="w-full h-full"></canvas>
             </div>
 
             <!-- Gráfico de top 5 Familias con más productos -->
             <div
-                class="relative rounded-2xl border p-6 bg-[#88a0bf] dark:bg-[#f2f2f2] shadow-md w-full min-h-[280px] overflow-hidden block xl:hidden">
+                class="relative rounded-2xl border p-6 bg-[#88a0bf] dark:bg-gray-300 shadow-md w-full min-h-[280px] overflow-hidden block xl:hidden">
                 <h3 class="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-800 text-center">Proveedores</h3>
                 <canvas id="proveedoresChart" class="w-full h-full"></canvas>
             </div>

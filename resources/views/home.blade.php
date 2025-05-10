@@ -111,25 +111,28 @@
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl text-black dark:text-black">Nuestra Localización</h2>
             <p class="text-lg text-black dark:text-black mt-4">Encuentra nuestra ubicación en Burgos, España, en el mapa a continuación.</p>
-
-            <!-- Contenedor del mapa -->
             <div id="map" class="rounded-lg mt-7" style="height: 500px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);"></div>
-
         </div>
     </section>
 
     {{-- <script type="text/javascript" src="{{ asset('js/script.js') }}"></script> --}}
     <script>
-    var map = L.map('map').setView([42.373426991593206, -3.7109438098017513], 13);
+        document.addEventListener("DOMContentLoaded", function() {            
+            var map = L.map('map').setView([42.373426991593206, -3.7109438098017513], 13); // Coordenadas de Burgos
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 18,
+                // attribution: '© OpenStreetMap'
+            }).addTo(map);
+            var marker = L.marker([42.373426991593206, -3.7109438098017513]).addTo(map);
+            marker.bindPopup("<b>Díaz Kremer</b><br>Dirección: C. Merindad de Cuesta Urria, 16, 09001<br>Burgos, España").openPopup();
+        });
+        // var map = L.map('map').setView([42.373426991593206, -3.7109438098017513], 13);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        // }).addTo(map);
 
-    L.marker([42.373426991593206, -3.7109438098017513]).addTo(map).bindPopup('¡Aquí está Diaz Kremer!').openPopup();
-</script>
-
-
-
+        // L.marker([42.373426991593206, -3.7109438098017513]).addTo(map).bindPopup('¡Aquí está Diaz Kremer!').openPopup();
+    </script>
 </x-layouts.appD>
 <script type="text/javascript" src="{{ asset('js/slider.js') }}"></script>

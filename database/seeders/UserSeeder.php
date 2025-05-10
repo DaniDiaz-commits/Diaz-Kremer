@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
         // $user->avatar = "https://ui-avatars.com/api/?name=".$user->name;
         $user->save();
 
-        $user->name = "test";
+        $user->name = "Testing";
         $user->email = "test@example.com";
         $user->password = bcrypt('a');
         $user->opinion = "";
