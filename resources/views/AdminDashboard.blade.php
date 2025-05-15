@@ -232,7 +232,4 @@
             return `hsl(${h.toFixed(0)}, ${s.toFixed(0)}%, ${l.toFixed(0)}%)`;
         }
     </script>
-
-
-
 </x-layouts.app>

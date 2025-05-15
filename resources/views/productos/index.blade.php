@@ -111,9 +111,11 @@
 
                             <!-- Precio -->
                             <section class="mt-auto w-full flex justify-between items-center">
-                                <div class="price text-green-800 font-bold">
-                                    <del class="text-gray-900">${{ $producto->newPrecio }}</del>
-                                    {{ $producto->precio }}
+                                <div class="price text-green-800 font-bold " style="font-family: sans-serif;">
+                                    @if ($producto->newPrecio > 0)
+                                        <del class="text-gray-900 mr-2" style="font-family: sans-serif;">{{ $producto->newPrecio }}€ </del>
+                                    @endif
+                                    {{ $producto->precio }}€
                                 </div>
 
                                 <div class="bag">

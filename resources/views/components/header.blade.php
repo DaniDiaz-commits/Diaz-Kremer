@@ -57,7 +57,7 @@
 
 
             <button data-collapse-toggle="navbar-hamburger" type="button" id="button-toggle-nav"
-                class="button-mv inline-flex md:hidden items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-gray-200 dark:text-gray-400 dark:hover:[#23518c] dark:focus:ring-gray-600"
+                class="button-mv inline-flex md:hidden items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg  focus:outline-none focus:ring-gray-200 dark:text-gray-400 dark:hover:[#23518c] dark:focus:ring-gray-600"
                 aria-controls="navbar-hamburger" aria-expanded="false">
                 {{-- <span class="sr-only">Open main menu</span> --}}
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -70,27 +70,27 @@
                 <ul class="flex flex-col font-medium mt-4 rounded-lg ">
                     <li>
                         <a href="/"
-                            class="block {{ request()->is('/') ? 'active' : 'hover:bg-gray-100 no-active' }} change py-2 px-3 rounded-sm bg-white   dark:text-black dark:hover:text-[#23518c]"
+                            class="block {{ request()->is('/') ? 'active' : 'hover:bg-gray-100 no-active' }} change py-2 px-3 rounded-sm    dark:text-white dark:hover:text-[#23518c]"
                             aria-current="page">Inicio</a>
                     </li>
                     <li>
                         <a href="/productos"
-                            class="block {{ request()->is('productos*') ? 'active' : 'hover:bg-gray-100 no-active' }} change py-2 px-3 rounded-sm bg-white dark:text-black dark:hover:text-[#23518c]">
+                            class="block {{ request()->is('productos*') ? 'active' : 'hover:bg-gray-100 no-active' }} change py-2 px-3 rounded-sm  dark:text-white dark:hover:text-[#23518c]">
                             Productos
                         </a>
                     </li>
                     <li>
                         <a href="/proveedores"
-                            class="block {{ request()->is('proveedores') ? ' active' : 'hover:bg-gray-100 no-active' }} change py-2 px-3 rounded-sm bg-white   dark:text-black  dark:hover:text-[#23518c] ">Marcas</a>
+                            class="block {{ request()->is('proveedores') ? ' active' : 'hover:bg-gray-100 no-active' }} change py-2 px-3 rounded-sm   dark:text-white  dark:hover:text-[#23518c] ">Marcas</a>
                     </li>
                     <li>
                         <a href="/#contacto"
-                            class="block change py-2 px-3 rounded-sm bg-white   dark:text-black  dark:hover:text-[#23518c]">Contacto</a>
+                            class="block change py-2 px-3 rounded-sm   dark:text-white hover:bg-gray-100 dark:hover:text-[#23518c]">Contacto</a>
                     </li>
                     <li class="flex justify-end">
                         @auth
                             <a href="{{ route('dashboard') }}"
-                                class="btn btn-primary text-black py-2 px-2 rounded-sm hover:shadow-lg">
+                                class="btn btn-primary text-black dark:text-white py-2 px-2 rounded-sm hover:shadow-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                     class="size-6">
                                     <path fill-rule="evenodd"
@@ -101,7 +101,7 @@
                         @endauth
                         @guest
                             <a href="{{ route('login') }}"
-                                class="btn btn-primary text-black py-2 px-2 rounded-sm hover:shadow-lg">
+                                class="btn btn-primary text-black dark:text-white py-2 px-2 rounded-sm hover:shadow-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round"

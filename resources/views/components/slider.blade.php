@@ -10,11 +10,11 @@
         </div> --}}
         <div class="slide">
             <img src="{{ asset('img/banner/diazKremer-outside.png')}}" alt="img #4">
-            <a href="/proveedores" class="slide-btn">Marcas</a>
+            <a href="/#localizacion" class="slide-btn">Localizacion</a>
         </div>
         <div class="slide">
             <img src="{{ asset('img/banner/bannerNavidad-dk.png')}}" alt="img #4">
-            <a href="/proveedores" class="slide-btn">Marcas</a>
+            <a href="/productos" class="slide-btn">Productos</a>
         </div>
     </div>
     <button class="prev hidden md:block" onclick="prevSlide()">&#10094;</button>
