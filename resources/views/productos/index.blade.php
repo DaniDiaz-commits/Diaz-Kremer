@@ -7,8 +7,7 @@
             <form id="formulario" action="{{ route('productos.order') }}" method="GET"
                 class="w-full md:max-w-sm mx-auto mb-8 px-4">
                 @csrf
-                <label for="familias" class="block mb-2 text-xl font-medium text-center text-gray-900">Selecciona una
-                    familia</label>
+                <label for="familias" class="block mb-2 text-xl font-medium text-center text-gray-900">Selecciona una familia</label>
                 <select id="familias" name="familia"
                     class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
                     <option value="">Todas las familias</option>
